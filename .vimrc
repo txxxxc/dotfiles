@@ -47,14 +47,37 @@ if len(s:removed_plugins) > 0
 endif
 " }}}
 
+" 行番号表示
+set number
+
+" 現在の行を強調表示
+set cursorline
+
+" smartindentの設定
+set smartindent
+
+" エンコードをUTF-8に設定
+set encoding=utf-8
+
+" 言語設定をUSに
+language en_US.UTF-8
+
+" shellをzshに設定
+set shell=/bin/zsh
+
 " シンタックスハイライト
 syntax on
 
-" shellをzshに設定
-set shell=/usr/local/bin/zsh
+" 背景
+set background=dark
 
 " カラーテーマの設定
-colorscheme onedark
+colorscheme onehalfdark 
+
+let g:airline_theme='onehalfdark'
+
+" ステータスラインの有効化
+set laststatus=2
 
 set clipboard+=unnamed
 
@@ -65,7 +88,13 @@ set incsearch
 
 inoremap jk <Esc>
 nmap <CR> o<ESC>
+noremap <S-h> ^
+noremap <S-l> $
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
-"fzf setting
+"fzf settings
 set rtp+=/usr/local/opt/fzf
 map ; :FZF .<CR>
