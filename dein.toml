@@ -2,6 +2,10 @@
 repo = "joshdick/onedark.vim"
 
 [[plugins]]
+repo = "sonph/onehalf" 
+rtp = 'vim/'
+
+[[plugins]]
 repo = 'junegunn/fzf'
 build_on = '''
 ./install -all
@@ -9,3 +13,30 @@ build_on = '''
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+marged = 0
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
