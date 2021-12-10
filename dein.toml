@@ -10,6 +10,17 @@ repo = 'junegunn/fzf'
 build_on = '''
 ./install -all
 '''
+hook_add = '''
+set rtp+=/usr/local/opt/fzf
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
+command! -bang -nargs=* Ag
+  \ call fzf#vim#grep(
+  \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>), 0,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%', '?'),
+  \   <bang>0)
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
@@ -40,3 +51,22 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on = 'QuickRun'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+do = 'make'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+hook_add = '''
+	let g:highlightedyank_highlight_duration = 250
+'''
