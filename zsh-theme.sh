@@ -1,6 +1,9 @@
-export LSCOLORS="dxfxcxdxbxegedabagacad"
-export LS_COLORS='di=33;:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
+autoload -Uz vcs_info
+autoload -Uz colors && colors
+export LSCOLORS='exfxcxdxbxegedabagacad'
 export GREP_COLOR='1;33'
+export CLICOLOR=1
+zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
 
 # PROMPTテーマ
 setopt prompt_subst #プロンプト表示する度に変数を展開
@@ -18,7 +21,6 @@ local RAINBOW=$'%{\e[$[color=$[31+$RANDOM%6]]m%}'
 PROMPT="
 ${CYAN}%~${reset_color}$ "
 
-autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' check-for-changes true      # formats 設定項目で %c,%u が使用可
 zstyle ':vcs_info:git:*' stagedstr "%F{red}"         # commit されていないファイルがある
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}"       # add されていないファイルがある
@@ -31,6 +33,11 @@ PROMPT=$PROMPT'  ${vcs_info_msg_0_}
 ${GRAY}$ ${reset_color}'
 
 zstyle ':vcs_info:git+set-message:*' hooks git-is_clean git-untracked
+
+# プロンプトの表示設定(好きなようにカスタマイズ可)
+setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
+\$ '
+
 # 状態がクリーンか判定
 function +vi-git-is_clean(){
     if [ -z "$(git status --short 2>/dev/null)" ];then
