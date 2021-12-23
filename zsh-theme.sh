@@ -35,18 +35,24 @@ ${GRAY}$ ${reset_color}'
 zstyle ':vcs_info:git+set-message:*' hooks git-is_clean git-untracked
 
 # プロンプトの表示設定(好きなようにカスタマイズ可)
-setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
+setopt PROMPT_SUBST 
+PS1='%F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
 \$ '
 
+#setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
+#\$ '
+
 # 状態がクリーンか判定
-function +vi-git-is_clean(){
+function +vi-git-is_clean() {
     if [ -z "$(git status --short 2>/dev/null)" ];then
         hook_com[misc]+="✔"
     fi
 }
+
 # unstaged, untrackedの検知
 function +vi-git-untracked() {
     if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
         hook_com[unstaged]+='%F{red}✗%f'
     fi
 }
+
