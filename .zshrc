@@ -1,5 +1,6 @@
 # テーマ読み込み
-source ~/dotfiles/zsh-theme.sh
+source ~/.zsh/theme.sh
+source ~/.zsh/alias.sh
 # Tabで選択できるように
 zstyle ':completion:*:default' menu select=2
 # 補完で大文字にもマッチ
@@ -33,26 +34,13 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
-#alias ls="ls -a -G -F | grep -v '/$'"
-alias ls="ls -a -G -F"
-
-alias record-demo='xcrun simctl io booted recordVideo'
-alias relog='exec $SHELL -l'
-alias ga='git add'
-alias ..='cd ..'
-alias gc='git commit -v'
-alias gp='git push'
-alias dc='docker-compose'
-alias vim='nvim'
-alias vimcf='vim ~/.config/nvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:usr/local/include/
 
 # git completion
@@ -61,9 +49,9 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:usr/local/include/
 source ~/.zsh/git-prompt.sh
 
 # git-completionの読み込み
-fpath=(~/.zsh $fpath)
+fpath=(~/.zsh/completion $fpath)
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-autoload -Uz compinit && compinit
+autoload -U compinit && compinit -u
 
 # プロンプトのオプション表示設定
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -72,6 +60,15 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 
 
-# passful
-alias passful-user="cd ~/workspace/passful/typescript/apps/user"
 
+fda() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
