@@ -1,10 +1,6 @@
 # テーマ読み込み
 source ~/.zsh/theme.sh
 source ~/.zsh/alias.sh
-# Tabで選択できるように
-zstyle ':completion:*:default' menu select=2
-# 補完で大文字にもマッチ
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 setopt auto_param_slash       # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
 setopt mark_dirs              # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
@@ -50,16 +46,33 @@ source ~/.zsh/git-prompt.sh
 
 # git-completionの読み込み
 fpath=(~/.zsh/completion $fpath)
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-autoload -U compinit && compinit -u
+autoload -U compinit
+compinit -u
+# 補完候補に色つける
+autoload -U colors
+colors
+zstyle ':completion:*' list-colors "${LS_COLORS}"
+
+# 単語の入力途中でもTab補完を有効化
+setopt complete_in_word
+# 補完候補をハイライト
+zstyle ':completion:*:default' menu select=1
+# キャッシュの利用による補完の高速化
+zstyle ':completion::complete:*' use-cache true
+# 大文字、小文字を区別せず補完する
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# 補完リストの表示間隔を狭くする
+setopt list_packed
+ 
+# コマンドの打ち間違いを指摘してくれる
+setopt correct
+SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
 # プロンプトのオプション表示設定
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
-
-
 
 fda() {
   local dir

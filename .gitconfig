@@ -1,0 +1,9 @@
+[user]
+	email = tomoya113.code@gmail.com
+	name = Tomoya Tanaka
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+[init]
+	defaultBranch = master
+[commit] verbose = true

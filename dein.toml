@@ -1,17 +1,27 @@
-[[plugins]]
-repo = "joshdick/onedark.vim"
 
 [[plugins]]
-repo = "sonph/onehalf" 
-rtp = 'vim/'
+repo = "altercation/vim-colors-solarized"
+
+[[plugins]]
+repo = "cespare/vim-toml"
+
+[[plugins]]
+repo = "jparise/vim-graphql"
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build_on = '''
-./install -all
-'''
+build_on = './install --bin'
+merged = '0'
 hook_add = '''
 set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/bin/fzf
+set rtp+=~/.fzf
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+dependes = 'fzf'
+hook_add = '''
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
 command! -bang -nargs=* Ag
@@ -23,12 +33,51 @@ command! -bang -nargs=* Ag
 '''
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
-
-[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 marged = 0
+hook_add = """
+" coc-graphql
+let g:coc_global_extensions = [
+      \ 'coc-actions',
+      \ 'coc-angular',
+      \ 'coc-cspell-dicts', 
+      \ 'coc-diagnostic', 
+      \ 'coc-dictionary', 
+      \ 'coc-dot-complete', 
+      \ 'coc-eslint', 
+      \ 'coc-emmet', 
+      \ 'coc-floaterm', 
+      \ 'coc-fzf-preview', 
+      \ 'coc-git', 
+      \ 'coc-html', 
+      \ 'coc-htmlhint', 
+      \ 'coc-highlight',
+      \ 'coc-json', 
+      \ 'coc-lists', 
+      \ 'coc-lightbulb', 
+      \ 'coc-ltex', 
+      \ 'coc-markdownlint', 
+      \ 'coc-metals', 
+      \ 'coc-pairs', 
+      \ 'coc-prettier', 
+      \ 'coc-python', 
+      \ 'coc-snippets', 
+      \ 'coc-sourcekit', 
+      \ 'coc-spell-checker', 
+      \ 'coc-stylelintplus', 
+      \ 'coc-stylelint', 
+      \ 'coc-tailwindcss', 
+      \ 'coc-tslint-plugin', 
+      \ 'coc-tsserver', 
+      \ 'coc-toml', 
+      \ 'coc-ultisnips', 
+      \ '@yaegassy/coc-volar', 
+      \ 'coc-yank', 
+      \ 'coc-yaml'
+\] 
+"""
+
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
@@ -52,8 +101,31 @@ repo = 'tpope/vim-fugitive'
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 on = 'QuickRun'
+hook_add = """
+let g:quickrun_config = {}
+
+let g:quickrun_config._ = {
+ \ 'outputter/error/success': 'buffer',
+ \ 'outputter/error/error': 'quickfix',
+ \ 'outputter/quickfix/open_cmd': 'copen',
+ \ 'outputter/buffer/opener': 'new',
+ \ 'outputter/buffer/close_on_empty': 1,
+ \ 'runner': 'vimproc', 
+ \ 'runner/vimproc/updatetime': 60,
+ \ 'hook/time/enable': 1,
+\ }
+
+let g:quickrun_config.cpp = {
+\	'command': 'g++',
+\	'input': 'input',  
+\	'runner': 'system'  
+\	}
+"""
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -70,3 +142,42 @@ repo = 'machakann/vim-highlightedyank'
 hook_add = '''
 	let g:highlightedyank_highlight_duration = 250
 '''
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+let g:ale_linters = {
+ \ 'javascript': ['eslint', 'prettier'],
+ \ 'javascriptreact': ['eslint', 'prettier'],
+ \ 'typescript': ['eslint', 'prettier'],
+ \ 'typescriptreact': ['eslint', 'prettier'],
+ \ 'vue': ['eslint', 'prettier'],
+ \ 'css': ['stylelint', 'prettier'],
+ \ 'scss': ['stylelint', 'prettier'],
+ \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
+ \ }
+
+" 言語ごとの自動整形を行うリンターの設定を行う
+let g:ale_fixers = {
+  \ 'javascript': ['eslint', 'prettier'],
+  \ 'json': ['eslint', 'prettier'],
+  \ 'javascriptreact': ['eslint', 'prettier'],
+  \ 'typescript': ['eslint', 'prettier'],
+  \ 'typescriptreact': ['eslint', 'prettier'],
+  \ 'vue': ['eslint', 'prettier'],
+  \ 'css': ['stylelint', 'prettier'],
+  \ 'scss': ['stylelint', 'prettier'],
+  \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
+  \ }
+
+" ファイル保存時に実行
+let g:ale_fix_on_save = 1
+
+" ローカルの設定ファイルを考慮する
+let g:ale_javasript_prettier_use_local_config = 1
+
+'''
+
+[[plugins]]
+repo = "posva/vim-vue" 
+
