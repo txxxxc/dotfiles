@@ -1,4 +1,3 @@
-
 alias ls="ls -a -G -F"
 alias record-demo='xcrun simctl io booted recordVideo'
 alias relog='exec $SHELL -l'
