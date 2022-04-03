@@ -11,11 +11,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: set zsh
+      run: chsh -s /bin/zsh
+
     - name: check $SHELL
       run: echo $SHELL
 
     - name: whoami
       run: whoami
+
 
     - name: chown 
       run: chown -R `whoami` ${GITHUB_WORKSPACE}
