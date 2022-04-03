@@ -11,9 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: check $SHELL
+      run: echo $SHELL
+
     - name: Run install.sh
-      run: ${GITHUB_WORKSPACE}/install.sh
+      run: sudo sh ${GITHUB_WORKSPACE}/install.sh
 
     - name: Run install-envs.sh
-      run: ${GITHUB_WORKSPACE}/install-envs.sh
+      run: sudo sh ${GITHUB_WORKSPACE}/install-envs.sh
 
