@@ -1,5 +1,8 @@
 DOTFILES="$(pwd)"
 
+ln -sf ${DOTFILES}/.vimrc ${DOTFILES}/.config/nvim/init.vim
+ln -snfv ${DOTFILES}/Brewfile ~/
+
 for f in .??*; do
     [ "$f" = ".git" ] && continue
     [ "$f" = ".github" ] && continue
@@ -10,7 +13,5 @@ for f in .??*; do
     ln -snfv ${DOTFILES}/"$f" ~/
 done
 
-ln -sf ${DOTFILES}/.vimrc ~/.config/nvim/init.vim
-ln -snfv ${DOTFILES}/Brewfile ~/
 
 

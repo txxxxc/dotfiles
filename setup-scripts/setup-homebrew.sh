@@ -10,6 +10,8 @@ if [ "$(uname)" == "Linux" ]; then
 		test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 fi
 
+brew doctor
+
 # install brew dependencies from Brewfile
 brew bundle
 
