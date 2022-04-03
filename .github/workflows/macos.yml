@@ -23,6 +23,9 @@ jobs:
     - name: Run install.sh
       run: sh ${GITHUB_WORKSPACE}/install.sh
 
+    - name: relog
+      run: exec $SHELL -l
+
     - name: Run install-envs.sh
       run: sh ${GITHUB_WORKSPACE}/install-envs.sh
 
