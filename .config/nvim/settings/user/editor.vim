@@ -1,5 +1,26 @@
-set number
+let g:python_host_prog = system('echo -n $(which python2)')
+let g:python3_host_prog = system('echo -n $(which python3)')
+let g:jedi#force_py_version = 3
 
+let g:fern#renderer = 'nerdfont'
+let g:fern#default_hidden=1
+
+execute 'set runtimepath+=~/.config/nvim'
+
+" lambdalisue/glyph-paletter.vim
+" アイコンに色をつける
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
+autocmd BufNewFile ~/projects/me/AtCoder/**/*.cpp :0r ~/.config/nvim/templates/atcoder.cpp
+
+au FileType * set fo-=c fo-=r fo-=o
+set fo-=c fo-=r fo-=o
+au BufEnter * set fo-=c fo-=r fo-=o
+
+set number
 
 " 検索パターンにおいて大文字と小文字を区別しない。
 set ignorecase
@@ -30,6 +51,9 @@ language en_US.UTF-8
 " shellをzshに設定
 set shell=/bin/zsh
 
+" swpファイル出力無効
+set noswapfile
+
 " シンタックスハイライト
 syntax on
 syntax enable
@@ -40,7 +64,6 @@ syntax enable
 let g:solarized_termcolors=16
 let g:solarized_termtrans = 1
 set background=dark
-colorscheme solarized 
 let g:airline_theme='solarized'
 " exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
 "let s:base03      = "234"
@@ -60,6 +83,10 @@ set incsearch
 
 " 前回の検索パターンが存在するとき、それにマッチするテキストを全て強調表示する。
 set hlsearch
+
+" 改行時の自動コメントアウトを無効化する 
+au FileType * set fo-=c fo-=r fo-=o
+set fo-=c fo-=r fo-=o
 
 " coc-server
 " TextEdit might fail if hidden is not set.
@@ -87,4 +114,13 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+" far.vim
+let g:far#enable_undo=2
+" farの検索をrgにする
+let g:far#source="rgnvim"
+let g:far#window_layout="tab"
+set lazyredraw            " improve scrolling performance when navigating through large results
+set regexpengine=1        " use old regexp engine
+set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
 

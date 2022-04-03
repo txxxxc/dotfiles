@@ -1,7 +1,6 @@
 " <Leader>をSpaceに設定
 let mapleader = "\<Space>"
 
-nnoremap <leader>n :NERDTreeFocus<CR>
 " fzf config
 nnoremap <leader>f :FZF<CR>
 nnoremap <leader>r :Rg<CR>
@@ -12,7 +11,8 @@ nnoremap <silent><leader>q :QuickRun<CR>
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <leader>a  :CocList diagnostics<cr>
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -40,3 +40,7 @@ nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+
+nnoremap <silent> <leader>s :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>

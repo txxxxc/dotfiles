@@ -2,9 +2,10 @@ inoremap jk <Esc>
 nmap <CR> o<ESC>
 noremap <S-h> ^
 noremap <S-l> $
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-t> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 " quickfix
 " 前へ
@@ -30,3 +31,16 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-p> :TmuxNavigatePrevious<cr>
 
+nmap <Esc><Esc> :nohl<CR>
+
+
+" vim-sandwich
+nmap s <Nop>
+xmap s <Nop>
+
+" far.vim
+" ショートカット設定
+" ctrl + g で置換のショートカット
+nnoremap <C-g> :Far  **/*<Left><Left><Left><Left><Left>
+" ctrl + s で検索のショートカット
+nnoremap <C-s> :F  **/*<Left><Left><Left><Left><Left>
