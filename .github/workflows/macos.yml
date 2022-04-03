@@ -1,0 +1,19 @@
+name: macos
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  macos-test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run install.sh
+      run: ${GITHUB_WORKSPACE}/install.sh
+
+    - name: Run install-envs.sh
+      run: ${GITHUB_WORKSPACE}/install-envs.sh
+
