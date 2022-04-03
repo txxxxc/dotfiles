@@ -2,6 +2,7 @@ DOTFILES="$(pwd)"
 
 for f in .??*; do
     [ "$f" = ".git" ] && continue
+    [ "$f" = ".github" ] && continue
     [ "$f" = ".gitconfig.local.template" ] && continue
     [ "$f" = ".gitmodules" ] && continue
 
