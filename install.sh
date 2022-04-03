@@ -1,34 +1,26 @@
+SETUP_SCRIPTS="${DOTFILES}/setup-scripts"
+COLOR_GRAY="\033[1;38;5;243m"
+COLOR_BLUE="\033[1;34m"
+COLOR_GREEN="\033[1;32m"
+COLOR_RED="\033[1;31m"
+COLOR_PURPLE="\033[1;35m"
+COLOR_YELLOW="\033[1;33m"
+COLOR_NONE="\033[0m"
 
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+title() {
+    echo -e "\n${COLOR_PURPLE}$1${COLOR_NONE}"
+    echo -e "${COLOR_GRAY}==============================${COLOR_NONE}\n"
+}
 
-for f in .??*; do
-    [ "$f" = ".git" ] && continue
-    [ "$f" = ".gitconfig.local.template" ] && continue
-    [ "$f" = ".gitmodules" ] && continue
+title "Setup symlink"
+source ${SETUP_SCRIPTS}/setup-symlink.sh
 
-    # シンボリックリンクを貼る
-    ln -snfv ${PWD}/"$f" ~/
-done
+title "Setup macOS"
+source ${SETUP_SCRIPTS}/setup-macos.sh
 
-ln -snfv ${PWD}/Brewfile ~/
+title "Setup Homebrew"
+source ${SETUP_SCRIPTS}/setup-homebrew.sh
 
-mkdir -p ~/.vim
-ln -sf ${PWD}/dein.toml ~/.vim/
-ln -sf ${PWD}/settings ~/.vim/
-
-mkdir -p ~/config/nvim
-ln -sf ${PWD}/.vimrc ~/config/nvim/init.vim
-ln -sf ${PWD}/settings ~/config/nvim/
-ln -sf ${PWD}/coc-settings.json ~/config/nvim/
-
-brew bundle
-$(brew --prefix)/opt/fzf/install
-
-anyenv install rbenv
-anyenv install pyenv
-anyenv install nodenv
-anyenv install goenv
+anyenv init
 
 exec $SHELL -l
-
-
