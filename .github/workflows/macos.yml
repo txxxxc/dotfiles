@@ -9,7 +9,7 @@ jobs:
     runs-on: macos-latest
     defaults:
       run:
-        shell: zsh
+        shell: /bin/zsh {0}
 
     steps:
     - uses: actions/checkout@v2
