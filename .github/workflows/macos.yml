@@ -14,9 +14,15 @@ jobs:
     - name: check $SHELL
       run: echo $SHELL
 
+    - name: whoami
+      run: whoami
+
+    - name: chown 
+      run: chown -R `whoami` ${GITHUB_WORKSPACE}
+
     - name: Run install.sh
-      run: sudo sh ${GITHUB_WORKSPACE}/install.sh
+      run: sh ${GITHUB_WORKSPACE}/install.sh
 
     - name: Run install-envs.sh
-      run: sudo sh ${GITHUB_WORKSPACE}/install-envs.sh
+      run: sh ${GITHUB_WORKSPACE}/install-envs.sh
 
