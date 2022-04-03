@@ -7,15 +7,12 @@ on:
 jobs:
   macos-test:
     runs-on: macos-latest
+    defaults:
+      run:
+        shell: zsh
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: set zsh
-      run: |
-        chmod 755 /usr/local/share/zsh/site-functions
-        chmod 755 /usr/local/share/zsh
-        chsh -s /bin/zsh
 
     - name: check $SHELL
       run: echo $SHELL
