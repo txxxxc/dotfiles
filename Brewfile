@@ -77,12 +77,8 @@ cask "spotmenu"
 cask "vagrant"
 cask "visual-studio-code", args: { appdir: "/Applications" }
 cask "zoom", args: { appdir: "/Applications" }
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "LINE", id: 539883307
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "RunCat", id: 1429033973
 mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
