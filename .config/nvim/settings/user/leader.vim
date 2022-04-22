@@ -12,7 +12,8 @@ nnoremap <silent><leader>q :QuickRun<CR>
 " Mappings for CoCList
 " Show all diagnostics.
 " nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <leader>a  :CocList diagnostics<cr>
+" nnoremap <silent><nowait> <leader>a  :CocList diagnostics<cr>
+nnoremap <silent><nowait> <leader>dl  :CocList diagnostics<cr>
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -29,7 +30,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Manage extensions.
 nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <leader>c  :<C-u>CocList commands<cr>
+" nnoremap <silent><nowait> <leader>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
@@ -44,3 +45,4 @@ nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 
 nnoremap <silent> <leader>s :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
+nnoremap <silent><nowait> <leader>cr  :<C-u>CocRestart<CR>
