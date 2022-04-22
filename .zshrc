@@ -36,6 +36,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores True
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool "true"
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool "true"
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 ## 履歴保存管理
 HISTFILE=$ZSHHOME/.zsh-history
 HISTSIZE=100000
