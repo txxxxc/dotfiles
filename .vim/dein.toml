@@ -26,6 +26,7 @@ hook_add = '''
 set rtp+=/usr/local/opt/fzf
 set rtp+=/usr/local/bin/fzf
 set rtp+=~/.fzf
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 '''
 
 [[plugins]]
@@ -34,12 +35,11 @@ dependes = 'fzf'
 hook_add = '''
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
-command! -bang -nargs=* Ag
+
+command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>), 0,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%', '?'),
-  \   <bang>0)
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}), <bang>0)
 '''
 
 [[plugins]]
@@ -49,25 +49,23 @@ marged = 0
 hook_add = '''
 let g:coc_global_extensions = [
       \ 'coc-actions',
-      \ 'coc-angular',
+      \ 'coc-docker',
       \ 'coc-diagnostic', 
       \ 'coc-eslint', 
       \ 'coc-emmet', 
-      \ 'coc-floaterm', 
       \ 'coc-fzf-preview', 
       \ 'coc-git', 
       \ 'coc-html', 
       \ 'coc-htmlhint', 
       \ 'coc-highlight',
+      \ 'coc-jedi', 
       \ 'coc-json', 
       \ 'coc-lists', 
-      \ 'coc-lightbulb', 
       \ 'coc-ltex', 
       \ 'coc-markdownlint', 
       \ 'coc-metals', 
-      \ 'coc-pairs', 
       \ 'coc-prettier', 
-      \ 'coc-python', 
+      \ 'coc-sh',
       \ 'coc-snippets', 
       \ 'coc-sourcekit', 
       \ 'coc-stylelintplus', 
@@ -86,6 +84,13 @@ let g:coc_global_extensions = [
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+hook_add = '''
+call lexima#add_rule({'char': '>',
+				\ 'at': '<\(\w\+\)\%#>',
+				\ 'leave': '>',
+				\ 'input_after': '</\1>',
+				\ 'with_submatch': 1})
+'''
 
 # [[plugins]]
 # repo = 'preservim/nerdtree'
@@ -95,6 +100,42 @@ repo = 'cohama/lexima.vim'
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
 let g:fern#default_hidden=1
+let g:fern#default_exclude = '^\%(\.git\|\.DS_Store\)$'
+function! FernInit() abort
+	nmap <buffer> v <Plug>(fern-action-open:side)
+	nmap <buffer> K <Plug>(fern-action-new-dir)
+	nmap <buffer> ! <Plug>(fern-action-hidden:toggle)
+	nmap <buffer> - <Plug>(fern-action-mark:toggle)
+	vmap <buffer> - <Plug>(fern-action-mark:toggle)
+	nmap <buffer> C <Plug>(fern-action-clipboard-copy)
+	nmap <buffer> X <Plug>(fern-action-clipboard-move)
+	nmap <buffer> P <Plug>(fern-action-clipboard-paste)
+	nmap <buffer> h <Plug>(fern-action-collapse)
+	nmap <buffer> c <Plug>(fern-action-copy)
+	nmap <buffer> <leader>h <Plug>(fern-action-leave)
+	nmap <buffer> m <Plug>(fern-action-move)
+	nmap <buffer> N <Plug>(fern-action-new-file)
+	nmap <buffer> <cr> <Plug>(fern-action-open-or-enter)
+	nmap <buffer> l <Plug>(fern-action-open-or-expand)
+	nmap <buffer> s <Plug>(fern-action-open:select)
+	nmap <buffer> t <Plug>(fern-action-open:tabedit)
+	nmap <buffer> <C-l> <Plug>(fern-action-reload)
+	nmap <buffer> r <Plug>(fern-action-rename)
+	nmap<buffer> i <Plug>(fern-action-reveal)
+	nmap <buffer> D <Plug>(fern-action-trash)
+	nmap <buffer> y <Plug>(fern-action-yank)
+	nmap <buffer> gr <Plug>(fern-action-grep)
+	nmap <buffer> d <Plug>(fern-action-remove)
+	nmap <buffer> B <Plug>(fern-action-save-as-bookmark)
+	nmap <buffer> cd <Plug>(fern-action-tcd)
+	nmap <buffer> <C-h> <C-w>h
+	nmap <buffer> <C-l> <C-w>l
+endfunction
+augroup FernEvents
+	autocmd!
+	autocmd FileType fern call FernInit()
+augroup END
+let g:fern#disable_default_mappings = 1
 '''
 
 [[plugins]]
@@ -145,7 +186,7 @@ hook_add = '''
     \ 'command': 'g++',
     \ 'input': 'stdin.txt',
     \ 'runner': 'system',
-    \ 'cmdopt': '-std=c++14 -Wall'
+    \ 'cmdopt': '-std=c++14 -Wall -Wextra --pedantic-error'
     \ }
 '''
 
@@ -169,5 +210,36 @@ hook_add = '''
 repo = 'mattn/vim-goimports'
 
 [[plugins]]
+repo = 'fatih/vim-go'
+hook_add= '''
+	let g:go_def_mapping_enabled = 0
+	autocmd FileType go set autowrite 
+	autocmd FileType go nmap <leader>gr <Plug>(go-run)
+	autocmd FileType go nmap <leader>t <Plug>(go-test)
+	autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+	let g:go_metalinter_autosave = 1
+	" カーソル上のワードに対して:GoInfo実行
+	let g:go_auto_type_info = 1
+	" :GoInfo更新時間 Default->800
+	autocmd FileType go set updatetime=100
+	" または:GoInfoのキーバインドを設定
+	" autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+	" 同じIDをカーソルがワードに移動するごとにハイライト Default->0
+	" let g:go_auto_sameids = 1
+	" または:GoSameIdsToggleのキーバインドを設定
+	autocmd FileType go nmap <Leader>s :GoSameIdsToggle<CR>
+
+	" :GoPlayでページをブラウザに読み込まない Default->1
+	let g:go_play_open_browser = 0
+'''
+
+[[plugins]]
 repo = 'brooth/far.vim'
+
+[[plugins]]
+repo = 'buoto/gotests-vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
 
