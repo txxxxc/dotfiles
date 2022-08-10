@@ -4,6 +4,8 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
+	filemode = true
+	ignorecase = false
 [init]
 	defaultBranch = master
 [commit] verbose = true
