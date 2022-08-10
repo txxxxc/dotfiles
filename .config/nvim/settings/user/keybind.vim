@@ -1,11 +1,11 @@
 inoremap jk <Esc>
+inoremap <C-l> <C-O>l
+inoremap <C-h> <C-O>h
 nmap <CR> o<ESC>
 noremap <S-h> ^
 noremap <S-l> $
-" nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR>
-" nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+nnoremap <silent> cp :!echo %:p \| pbcopy<CR>
 
 " quickfix
 " 前へ
@@ -18,10 +18,10 @@ nnoremap [Q :<C-u>cfirst<CR>
 nnoremap ]Q :<C-u>clast<CR>
 
 " Use ctrl-hjkl to select the active split
-" nmap <silent> <c-k> :wincmd k<CR>
-" nmap <silent> <c-j> :wincmd j<CR>
-" nmap <silent> <c-h> :wincmd h<CR>
-" nmap <silent> <c-l> :wincmd l<CR>
+nnoremap <silent> <c-k> :wincmd k<CR>
+nnoremap <silent> <c-j> :wincmd j<CR>
+nnoremap <silent> <c-h> :wincmd h<CR>
+nnoremap <silent> <c-l> :wincmd l<CR>
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -33,6 +33,13 @@ nnoremap <silent> <c-p> :TmuxNavigatePrevious<cr>
 
 nmap <Esc><Esc> :nohl<CR>
 
+" coc
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " vim-sandwich
 nmap s <Nop>
@@ -44,3 +51,7 @@ xmap s <Nop>
 nnoremap <C-g> :Far  **/*<Left><Left><Left><Left><Left>
 " ctrl + s で検索のショートカット
 nnoremap <C-s> :F  **/*<Left><Left><Left><Left><Left>
+
+" terminalモード
+tnoremap <Esc> <C-\><C-n>
+
