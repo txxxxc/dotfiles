@@ -33,5 +33,7 @@
 		"go"
 	],
 	"suggest.noselect": false,
-	"suggest.preferCompleteThanJumpPlaceholder": true
+	"suggest.preferCompleteThanJumpPlaceholder": true,
+	"jedi.enable": true,
+	"jedi.executable.command": "~/.anyenv/envs/pyenv/shims/jedi-language-server"
 }
