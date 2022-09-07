@@ -1,39 +1,33 @@
 {
-	"languageserver": {
-		"graphql": {
-			"command": "graphql-lsp",
-			"args": ["server", "-m", "stream"],
-			// customize filetypes to your needs
-			"filetypes": ["typescriptreact", "graphql"]
-		},
-		"golang": {
-			"command": "gopls",
-			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-			"filetypes": ["go"]
-		}
-	},
-	"eslint.format.enable": true,
-	"eslint.autoFixOnSave": true,
-	"eslint.validate": [
-		"javascript", 
-		"javascriptreact",
-		"typescriptreact",
-		"typescript",
-		"vue"
-	],
-	"eslint.run": "onSave",
-	"tsserver.formatOnType": false,
-	"tsserver.trace.server": "verbose",
-	"typescript.suggest.autoImports": true,
-	"prettier.eslintIntegration": true,
-	"typescript.preferences.importModuleSpecifier": "non-relative",
-	"vetur.useWorkspaceDependencies": true,
-	"vetur.trace.server": "verbose",
-	"coc.preferences.formatOnSaveFiletypes": [
-		"go"
-	],
-	"suggest.noselect": false,
-	"suggest.preferCompleteThanJumpPlaceholder": true,
-	"jedi.enable": true,
-	"jedi.executable.command": "~/.anyenv/envs/pyenv/shims/jedi-language-server"
+  "coc.preferences.formatOnTypeFiletypes": ["go"],
+  "languageserver": {
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescriptreact", "graphql"]
+    }
+  },
+  "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript",
+    "vue"
+  ],
+  "eslint.run": "onSave",
+  "javascript.suggestionActions.enabled": false,
+  "tsserver.formatOnType": false,
+  "tsserver.trace.server": "verbose",
+  "typescript.suggest.autoImports": true,
+  "prettier.eslintIntegration": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "vetur.useWorkspaceDependencies": true,
+  "vetur.trace.server": "verbose",
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "suggest.noselect": false,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "jedi.enable": true,
+  "jedi.executable.command": "~/.anyenv/envs/pyenv/shims/jedi-language-server"
 }
