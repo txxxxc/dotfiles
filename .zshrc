@@ -21,6 +21,9 @@ setopt auto_cd                # ディレクトリ名だけでcdする
 setopt no_beep                # ビープ音を消す
 setopt globdots
 
+# batのカラーテーマ
+
+export BAT_THEME="Solarized (dark)"
 ZSHHOME="${HOME}/.zsh"
 
 if [ -d $ZSHHOME -a -r $ZSHHOME -a \
@@ -29,6 +32,24 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
         [[ ${i##*/} = *.zsh ]] &&
             [ \( -f $i -o -h $i \) -a -r $i ] && . $i
     done
+fi
+
+if [[ ! -n $TMUX ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  create_new_session="Create New Session"
+  ID="$ID\n${create_new_session}:"
+  ID="`echo $ID | fzf | cut -d: -f1`"
+  if [[ "$ID" = "${create_new_session}" ]]; then
+    tmux new-session
+  elif [[ -n "$ID" ]]; then
+    tmux attach-session -t "$ID"
+  else
+    :  # Start terminal normally
+  fi
 fi
 
 # どれが正しいんだろう...
@@ -52,6 +73,8 @@ bindkey "^N" history-beginning-search-forward-end
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="$HOME/.anyenv/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools"
+
 eval "$(anyenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -117,4 +140,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 ### End of Zinit's installer chunk
+
+export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down'
 
