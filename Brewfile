@@ -1,22 +1,32 @@
+tap "adoptopenjdk/openjdk"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 brew "anyenv"
+brew "python@3.10"
 brew "autojump"
+brew "automake"
 brew "bat"
 brew "grpc"
 brew "bear"
+brew "berkeley-db", link: true
+brew "bottom"
 brew "glib"
+brew "python@3.9"
 brew "carthage"
 brew "cmake"
 brew "dbmate"
+brew "deno"
+brew "duf"
+brew "dust"
 brew "guile"
 brew "unbound"
 brew "gnutls"
-brew "gobject-introspection"
 brew "harfbuzz"
+brew "libass"
+brew "tesseract"
 brew "ffmpeg"
 brew "fzf"
 brew "gcc"
@@ -24,24 +34,35 @@ brew "gdk-pixbuf"
 brew "gh"
 brew "ghq"
 brew "git"
+brew "gobject-introspection"
 brew "pango"
 brew "librsvg"
 brew "graphviz"
 brew "hub"
+brew "shared-mime-info"
 brew "libheif"
 brew "imagemagick"
 brew "krb5"
+brew "libfido2"
 brew "llvm"
+brew "lsd"
 brew "mas"
+brew "mecab"
+brew "mecab-ipadic"
 brew "mysql", restart_service: true
+brew "ncurses"
+brew "neofetch"
 brew "neovim"
 brew "nghttp2"
 brew "node"
+brew "openssl@3"
 brew "peco"
-brew "postgresql"
+brew "postgresql@14"
 brew "ripgrep"
 brew "ruby"
+brew "source-highlight"
 brew "spotify-tui"
+brew "starship"
 brew "swiftlint"
 brew "tcl-tk"
 brew "the_silver_searcher"
@@ -55,17 +76,21 @@ brew "wget"
 brew "yarn"
 brew "youtube-dl"
 brew "zsh-syntax-highlighting"
+cask "adoptopenjdk14"
 cask "alfred", args: { appdir: "/Applications" }
 cask "android-platform-tools", args: { appdir: "/Applications" }
 cask "android-studio"
 cask "anki", args: { appdir: "/Applications" }
+cask "background-music"
 cask "brooklyn", args: { appdir: "/Applications" }
 cask "discord", args: { appdir: "/Applications" }
 cask "docker", args: { appdir: "/Applications" }
+cask "dotnet-sdk"
 cask "figma", args: { appdir: "/Applications" }
 cask "font-hack-nerd-font", args: { appdir: "/Applications" }
 cask "google-chrome", args: { appdir: "/Applications" }
 cask "google-japanese-ime"
+cask "graphiql"
 cask "iterm2", args: { appdir: "/Applications" }
 cask "karabiner-elements", args: { appdir: "/Applications" }
 cask "keycastr", args: { appdir: "/Applications" }
@@ -74,11 +99,7 @@ cask "postman", args: { appdir: "/Applications" }
 cask "slack", args: { appdir: "/Applications" }
 cask "spotify", args: { appdir: "/Applications" }
 cask "spotmenu"
+cask "unity"
 cask "vagrant"
 cask "visual-studio-code", args: { appdir: "/Applications" }
 cask "zoom", args: { appdir: "/Applications" }
-mas "Keynote", id: 409183694
-mas "LINE", id: 539883307
-mas "RunCat", id: 1429033973
-mas "Trello", id: 1278508951
-mas "Xcode", id: 497799835
