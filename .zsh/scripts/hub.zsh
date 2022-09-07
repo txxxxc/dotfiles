@@ -4,8 +4,9 @@ hub_open() {
 zle -N hub_open
 bindkey '^h' hub_open
 
-hub_open_current_project() {
-	hub browse
+gh_open_current_project() {
+	# echoで改行してます
+	yes "" | gh browse
 }
-zle -N hub_open_current_project
-bindkey '^b' hub_open_current_project
+zle -N gh_open_current_project
+bindkey '^b' gh_open_current_project
