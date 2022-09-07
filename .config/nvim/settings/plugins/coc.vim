@@ -110,3 +110,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " highlight CocWarningHighlight guifg=#E5C07B
 " highlight CocFloating guifg=#282c34
 
+" 入力補完をを切る
+" autocmd User CocNvimInit call CocAction('toggleExtension', 'coc-pairs') | :call coc#rpc#stop()
+
