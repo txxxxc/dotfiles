@@ -1,12 +1,23 @@
 let g:python_host_prog = system('echo -n $(which python2)')
 let g:python3_host_prog = system('echo -n $(which python3)')
 let g:jedi#force_py_version = 3
-
+let g:fzf_prefer_tmux = 1
+let g:fzf_layout = { 'down': '~40%' }
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
 
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+let g:airline_theme='solarized'
+
+hi Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
 execute 'set runtimepath+=~/.config/nvim'
 
+function! s:init_fern() abort
+  nnoremap <buffer> <C-h> <C-w>h
+  nnoremap <buffer> <C-l> <C-w>l
+endfunction
 " lambdalisue/glyph-paletter.vim
 " アイコンに色をつける
 augroup my-glyph-palette
@@ -16,6 +27,7 @@ augroup my-glyph-palette
 augroup END
 autocmd BufNewFile ~/projects/me/AtCoder/**/*.cpp :0r ~/.config/nvim/templates/atcoder.cpp
 autocmd BufNewFile ~/projects/github.com/Tomoya113/aoj/*/** :0r ~/.config/nvim/templates/atcoder.cpp
+autocmd BufNewFile,BufRead *.golden set filetype=json
 
 au FileType * set fo-=c fo-=r fo-=o
 set fo-=c fo-=r fo-=o
@@ -62,15 +74,10 @@ syntax enable
 " hi Visual guifg=Yellow guibg=Red gui=none
 " 背景
 " カラーテーマの設定
-let g:solarized_termcolors=16
-let g:solarized_termtrans = 1
-set background=dark
-let g:airline_theme='solarized'
 " exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
 "let s:base03      = "234"
 "hi Visual term=none ctermfg=235 guifg=61 gui=bold
-hi Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
-" Visual         xxx cterm=reverse ctermfg=10 ctermbg=0 guibg=Grey40
+" hi Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
 "CursorLine     xxx ctermbg=0 guibg=Grey40
 " ステータスラインの有効化
 set laststatus=2
@@ -122,6 +129,21 @@ let g:far#enable_undo=2
 let g:far#source="rgnvim"
 let g:far#window_layout="tab"
 set lazyredraw            " improve scrolling performance when navigating through large results
-set regexpengine=1        " use old regexp engine
 set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
 
+set lazyredraw
+set ttyfast
+" set redrawtime=10000
+command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
+autocmd TermOpen * startinsert
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
