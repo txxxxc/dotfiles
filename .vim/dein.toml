@@ -1,14 +1,3 @@
-
-[[plugins]]
-repo = "altercation/vim-colors-solarized"
-hook_add = """
-colorscheme solarized 
-let g:solarized_termcolors=16
-let g:solarized_termtrans = 1
-set background=dark
-let g:airline_theme='solarized'
-"""
-
 [[plugins]]
 repo = "machakann/vim-sandwich"
 
@@ -54,6 +43,7 @@ let g:coc_global_extensions = [
       \ 'coc-eslint', 
       \ 'coc-emmet', 
       \ 'coc-fzf-preview', 
+      \ 'coc-go', 
       \ 'coc-git', 
       \ 'coc-html', 
       \ 'coc-htmlhint', 
@@ -80,8 +70,6 @@ let g:coc_global_extensions = [
 \] 
 '''
 
-# \ '@yaegassy/coc-volar', 
-
 [[plugins]]
 repo = 'cohama/lexima.vim'
 hook_add = '''
@@ -91,10 +79,6 @@ call lexima#add_rule({'char': '>',
 				\ 'input_after': '</\1>',
 				\ 'with_submatch': 1})
 '''
-
-# [[plugins]]
-# repo = 'preservim/nerdtree'
-
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
@@ -209,30 +193,30 @@ hook_add = '''
 [[plugins]]
 repo = 'mattn/vim-goimports'
 
-[[plugins]]
-repo = 'fatih/vim-go'
-hook_add= '''
-	let g:go_def_mapping_enabled = 0
-	autocmd FileType go set autowrite 
-	autocmd FileType go nmap <leader>gr <Plug>(go-run)
-	autocmd FileType go nmap <leader>t <Plug>(go-test)
-	autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-	let g:go_metalinter_autosave = 1
-	" カーソル上のワードに対して:GoInfo実行
-	let g:go_auto_type_info = 1
-	" :GoInfo更新時間 Default->800
-	autocmd FileType go set updatetime=100
-	" または:GoInfoのキーバインドを設定
-	" autocmd FileType go nmap <Leader>i <Plug>(go-info)
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# hook_add= '''
+# 	let g:go_def_mapping_enabled = 0
+# 	autocmd FileType go set autowrite 
+# 	autocmd FileType go nmap <leader>gr <Plug>(go-run)
+# 	autocmd FileType go nmap <leader>t <Plug>(go-test)
+# 	autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+# 	let g:go_metalinter_autosave = 1
+# 	" カーソル上のワードに対して:GoInfo実行
+# 	let g:go_auto_type_info = 1
+# 	" :GoInfo更新時間 Default->800
+# 	autocmd FileType go set updatetime=100
+# 	" または:GoInfoのキーバインドを設定
+# 	" autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
-	" 同じIDをカーソルがワードに移動するごとにハイライト Default->0
-	" let g:go_auto_sameids = 1
-	" または:GoSameIdsToggleのキーバインドを設定
-	autocmd FileType go nmap <Leader>s :GoSameIdsToggle<CR>
+# 	" 同じIDをカーソルがワードに移動するごとにハイライト Default->0
+# 	" let g:go_auto_sameids = 1
+# 	" または:GoSameIdsToggleのキーバインドを設定
+# 	autocmd FileType go nmap <Leader>s :GoSameIdsToggle<CR>
 
-	" :GoPlayでページをブラウザに読み込まない Default->1
-	let g:go_play_open_browser = 0
-'''
+# 	" :GoPlayでページをブラウザに読み込まない Default->1
+# 	let g:go_play_open_browser = 0
+# '''
 
 [[plugins]]
 repo = 'brooth/far.vim'
@@ -242,4 +226,25 @@ repo = 'buoto/gotests-vim'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-column-filename'
 
