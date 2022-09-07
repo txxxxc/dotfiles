@@ -1,13 +1,19 @@
 " <Leader>をSpaceに設定
 let mapleader = "\<Space>"
 
+" CR = エンターキー
 " fzf config
 nnoremap <leader>f :FZF<CR>
+nnoremap <leader>ag :Ag<CR>
 nnoremap <leader>r :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <leader>h :History<CR>
 nnoremap <silent><leader>q :QuickRun<CR> 
+
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -34,7 +40,7 @@ nnoremap <silent><nowait> <leader>e  :<C-u>CocList extensions<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -42,7 +48,11 @@ nnoremap <silent><nowait> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 nnoremap <leader>n :NERDTreeFocus<CR>
 
 nnoremap <silent> <leader>s :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
 nnoremap <silent><nowait> <leader>cr  :<C-u>CocRestart<CR>
+autocmd FileType go nmap <leader>gt :GoTests<CR>
