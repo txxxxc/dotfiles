@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>0B3FE6DD-6F54-44D9-840E-EE035834E95E</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>spread</string>
+			<key>text</key>
+			<string>Spread Sheet</string>
+			<key>url</key>
+			<string>https://docs.google.com/spreadsheets/u/1/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>3C278E65-31A2-4D74-A905-CE52847F71FC</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>eng</string>
+			<key>text</key>
+			<string>Search in English for '{query}'</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q={query}&amp;gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>6398483B-E6DD-4772-8027-75D768F8FC57</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nitia</string>
+			<key>text</key>
+			<string>日A</string>
+			<key>url</key>
+			<string>https://docs.google.com/spreadsheets/d/1r8u6jMTlW2cjFcfQORV7IMjXIQ4aBQD4aB11YvtFAWw/edit#gid=1787029593</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>8A6C455E-06B6-4F5C-B032-528B6B051537</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>calender</string>
+			<key>text</key>
+			<string>Google Calender</string>
+			<key>url</key>
+			<string>https://calendar.google.com/calendar/u/0/r?tab=cc</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D959EB6F-A028-4C98-83E0-FA1B58F7224C</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>kinyou</string>
+			<key>text</key>
+			<string>金曜</string>
+			<key>url</key>
+			<string>https://docs.google.com/spreadsheets/d/19ASU4h1uzCMZpDSQapLRB2yfdC-Ss0Gk6ZZMG-_J6cM/edit#gid=1787029593</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

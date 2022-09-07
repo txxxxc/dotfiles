@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "for(int i=0; i<{cursor}; i++) {\n\n}",
+    "uid" : "79E7F0D0-9217-4E70-B573-1033BDBB26B6",
+    "name" : "for_i",
+    "keyword" : "fori"
+  }
+}
