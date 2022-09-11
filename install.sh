@@ -16,11 +16,17 @@ title() {
 title "Setup symlink"
 source ${SETUP_SCRIPTS}/setup-symlink.sh
 
-title "Setup macOS"
+title "Setup MacOS"
 source ${SETUP_SCRIPTS}/setup-macos.sh
 
 title "Setup Homebrew"
 source ${SETUP_SCRIPTS}/setup-homebrew.sh
+
+title "Setup Font"
+source ${SETUP_SCRIPTS}/setup-font.sh
+
+title "Setup Terminal"
+source ${SETUP_SCRIPTS}/setup-terminal.sh
 
 anyenv init
 
