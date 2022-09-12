@@ -1,7 +1,7 @@
 inoremap jk <Esc>
-inoremap <C-l> <C-O>l
-inoremap <C-h> <C-O>h
 nmap <CR> o<ESC>
+inoremap <C-l> <C-O>
+inoremap <C-h> <C-O>
 noremap <S-h> ^
 noremap <S-l> $
 nnoremap <C-t> :Fern . -reveal=% -drawer -toggle -width=40<CR>
