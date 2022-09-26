@@ -5,15 +5,19 @@ let g:fzf_prefer_tmux = 1
 let g:fzf_layout = { 'down': '~40%' }
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
-
 set background=dark
 colorscheme solarized
 let g:solarized_termcolors=256
 let g:airline_theme='solarized'
 
-hi Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
-execute 'set runtimepath+=~/.config/nvim'
+" solarized-dark周りの色の設定
+highlight Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
+highlight Pmenu cterm=none ctermfg=12 ctermbg=0
+highlight PmenuSel cterm=underline ctermfg=245 ctermbg=7
+highlight CocFloating cterm=none ctermfg=12 ctermbg=0
+highlight CocMenuSel cterm=underline ctermfg=11 ctermbg=0
 
+execute 'set runtimepath+=~/.config/nvim'
 function! s:init_fern() abort
   nnoremap <buffer> <C-h> <C-w>h
   nnoremap <buffer> <C-l> <C-w>l
