@@ -32,6 +32,8 @@ augroup END
 autocmd BufNewFile ~/projects/me/AtCoder/**/*.cpp :0r ~/.config/nvim/templates/atcoder.cpp
 autocmd BufNewFile ~/projects/github.com/Tomoya113/aoj/*/** :0r ~/.config/nvim/templates/atcoder.cpp
 autocmd BufNewFile,BufRead *.golden set filetype=json
+" for fish shell
+autocmd FileType fish colorscheme fish-default
 
 au FileType * set fo-=c fo-=r fo-=o
 set fo-=c fo-=r fo-=o
