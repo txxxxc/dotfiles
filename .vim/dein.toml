@@ -2,10 +2,16 @@
 repo = "machakann/vim-sandwich"
 
 [[plugins]]
+repo = "altercation/vim-colors-solarized"
+
+[[plugins]]
 repo = "cespare/vim-toml"
 
 [[plugins]]
 repo = "jparise/vim-graphql"
+
+[[plugins]]
+repo = "nickeb96/fish.vim"
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -42,6 +48,7 @@ let g:coc_global_extensions = [
       \ 'coc-diagnostic', 
       \ 'coc-eslint', 
       \ 'coc-emmet', 
+      \ 'coc-fish', 
       \ 'coc-fzf-preview', 
       \ 'coc-go', 
       \ 'coc-git', 
@@ -247,4 +254,3 @@ repo = 'Shougo/ddu-kind-file'
 
 [[plugins]]
 repo = 'Shougo/ddu-column-filename'
-
