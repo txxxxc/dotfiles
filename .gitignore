@@ -1,4 +1,5 @@
 .git
 .zsh-history
 .vim/sessions/default.vim
+fish/functions/_*
 
