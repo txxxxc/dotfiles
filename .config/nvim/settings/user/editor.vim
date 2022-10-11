@@ -121,3 +121,36 @@ endfunction
 " hi Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
 "CursorLine     xxx ctermbg=0 guibg=Grey40
 
+"" treesitter
+
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+		"cpp",
+		"css",
+		"dockerfile",
+		"fish",
+		"gitignore",
+		"go",
+		"html",
+		"http",
+		"json",
+		"markdown",
+		"markdown_inline",
+    "python",
+    "ruby",
+    "swift",
+    "toml",
+    "tsx",
+    "typescript",
+    "vue",
+    "vim",
+    "yaml",
+  },
+  highlight = {
+    enable = true,
+  },
+	auto_install = true,
+}
+EOF
+
