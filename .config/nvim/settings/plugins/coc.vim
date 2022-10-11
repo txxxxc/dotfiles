@@ -1,5 +1,9 @@
 " coc-server
 
+let g:coc_filetype_map = {
+  \ 'typescript.javascript': 'typescript.tsx',
+  \ }
+
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
