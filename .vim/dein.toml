@@ -186,6 +186,11 @@ repo = 'Shougo/vimproc.vim'
 do = 'make'
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = 'TSUpdate'
+# hook_post_update = ':TSUpdate'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
