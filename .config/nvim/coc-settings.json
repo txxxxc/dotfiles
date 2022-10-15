@@ -20,6 +20,7 @@
   "javascript.suggestionActions.enabled": false,
   "tsserver.formatOnType": false,
   "tsserver.trace.server": "verbose",
+  "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "coc.preferences.formatOnSaveFiletypes": ["*"],
