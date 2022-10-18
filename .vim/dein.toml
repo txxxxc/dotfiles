@@ -1,4 +1,7 @@
 [[plugins]]
+repo = "skanehira/preview-markdown.vim"
+
+[[plugins]]
 repo = "machakann/vim-sandwich"
 
 [[plugins]]
@@ -15,7 +18,7 @@ repo = "nickeb96/fish.vim"
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build_on = './install --bin'
+build_on = './install --all'
 merged = '0'
 hook_add = '''
 set rtp+=/usr/local/opt/fzf
@@ -36,6 +39,11 @@ command! -bang -nargs=* Rg
   \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview({'options': '--exact --reverse --delimiter : --nth 3..'}), <bang>0)
 '''
+
+[[plugins]]
+repo = 'yuki-yano/fzf-preview.vim'
+rev = 'release/remote'
+dependes = ['junegunn/fzf']
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -73,7 +81,10 @@ let g:coc_global_extensions = [
       \ 'coc-toml', 
       \ 'coc-ultisnips', 
       \ 'coc-yank', 
-      \ 'coc-yaml'
+      \ 'coc-yaml',
+			\ 'coc-sourcekit',
+      \ '@yaegassy/coc-volar',
+      \ '@yaegassy/coc-volar-tools'
 \] 
 '''
 
@@ -259,3 +270,6 @@ repo = 'Shougo/ddu-kind-file'
 
 [[plugins]]
 repo = 'Shougo/ddu-column-filename'
+
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
