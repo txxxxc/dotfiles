@@ -4,7 +4,11 @@
     "graphql": {
       "command": "graphql-lsp",
       "args": ["server", "-m", "stream"],
-      "filetypes": ["typescriptreact", "graphql"]
+      "trace.server": "verbose",
+      "filetypes": ["typescript", "typescriptreact", "graphql"],
+      "settings": {
+        "graphql-config.load.legacy": true
+      }
     }
   },
   "eslint.format.enable": true,
