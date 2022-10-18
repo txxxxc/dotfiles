@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "## 対応内容\n\n- [commit hash］対応内容\n- [commit hash］対応内容\n- [commit hash］対応内容\n\t- \n- [commit hash］対応内容\n\t- ",
-    "uid" : "E032807C-4724-49F2-899E-784FDA10FFA0",
-    "name" : "Revised",
-    "keyword" : "rev "
-  }
-}
