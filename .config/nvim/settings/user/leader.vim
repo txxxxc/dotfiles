@@ -3,17 +3,17 @@ let mapleader = "\<Space>"
 
 " CR = エンターキー
 " fzf config
-nnoremap <leader>f :FZF<CR>
+nnoremap <leader>f :<C-u>CocCommand fzf-preview.ProjectFiles <CR>
 nnoremap <leader>ag :Ag<CR>
-nnoremap <leader>r :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <leader>h :History<CR>
 nnoremap <silent><leader>q :QuickRun<CR> 
-
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
+
+nnoremap <Leader>g :<C-u>FzfPreviewProjectGrep --add-fzf-arg=--nth=3<Space>
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -51,8 +51,8 @@ nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nnoremap <leader>n :NERDTreeFocus<CR>
 
 nnoremap <silent> <leader>s :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
 nnoremap <silent><nowait> <leader>cr  :<C-u>CocRestart<CR>
 autocmd FileType go nmap <leader>gt :GoTests<CR>
+
