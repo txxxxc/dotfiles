@@ -46,6 +46,10 @@ rev = 'release/remote'
 dependes = ['junegunn/fzf']
 
 [[plugins]]
+repo = 'lambdalisue/gina.vim'
+dependes = ['yuki-yano/fzf-preview.vim']
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 marged = 0
@@ -162,9 +166,6 @@ repo = 'vim-airline/vim-airline-themes'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
@@ -199,7 +200,6 @@ do = 'make'
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_update = 'TSUpdate'
-# hook_post_update = ':TSUpdate'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
