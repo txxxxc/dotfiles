@@ -273,3 +273,6 @@ repo = 'Shougo/ddu-column-filename'
 
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
