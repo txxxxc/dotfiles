@@ -27,6 +27,9 @@
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "suggest.noselect": false,
   "suggest.preferCompleteThanJumpPlaceholder": true,
+  "stylelintplus.autoFixOnSave": true,
+  "stylelintplus.autoFixOnFormat": true,
+  "stylelintplus.validateOnSave": true,
   "jedi.enable": true,
   "jedi.executable.command": "~/.anyenv/envs/pyenv/shims/jedi-language-server"
 }
