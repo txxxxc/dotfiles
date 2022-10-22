@@ -276,3 +276,6 @@ repo = 'lambdalisue/gin.vim'
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'rhysd/conflict-marker.vim'
