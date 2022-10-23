@@ -95,7 +95,6 @@ let g:far#source="rgnvim"
 let g:far#window_layout="tab"
 set lazyredraw            " improve scrolling performance when navigating through large results
 set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
-set lazyredraw
 set ttyfast
 " set redrawtime=10000
 command! -nargs=* T split | wincmd j | resize 20 | terminal <args>
