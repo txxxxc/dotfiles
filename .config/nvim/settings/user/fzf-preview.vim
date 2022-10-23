@@ -41,6 +41,7 @@ nnoremap <silent> <fzf-p>o     :<C-u>CocCommand fzf-preview.VistaBufferCtags<CR>
 nnoremap <silent> <dev>q  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<CR>
 nnoremap <silent> <dev>Q  :<C-u>CocCommand fzf-preview.CocDiagnostics<CR>
 nnoremap <silent> <dev>rf :<C-u>CocCommand fzf-preview.CocReferences<CR>
+nnoremap <silent> <fzf-p>rf :<C-u>CocCommand fzf-preview.CocReferences<CR>
 nnoremap <silent> <dev>t  :<C-u>CocCommand fzf-preview.CocTypeDefinitions<CR>
 
 function! s:buffers_delete_from_lines(lines) abort
