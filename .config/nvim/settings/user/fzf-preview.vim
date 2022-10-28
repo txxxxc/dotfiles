@@ -5,7 +5,6 @@ let g:fzf_preview_use_dev_icons       = 1
 let g:fzf_preview_default_fzf_options = {
 \ '--reverse': v:true,
 \ '--preview-window': 'wrap',
-\ '--exact': v:true,
 \ '--no-sort': v:true,
 \ }
 
