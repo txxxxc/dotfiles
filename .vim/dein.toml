@@ -5,7 +5,7 @@ repo = "skanehira/preview-markdown.vim"
 repo = "machakann/vim-sandwich"
 
 [[plugins]]
-repo = "altercation/vim-colors-solarized"
+repo = "arcticicestudio/nord-vim"
 
 [[plugins]]
 repo = "cespare/vim-toml"
