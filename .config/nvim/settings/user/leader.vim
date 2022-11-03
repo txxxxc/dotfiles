@@ -12,7 +12,6 @@ nnoremap <silent><leader>q :QuickRun<CR>
 nnoremap <leader>d "_d
 xnoremap <leader>d "_d
 xnoremap <leader>p "_dP
-
 nnoremap <Leader>g :<C-u>FzfPreviewProjectGrep --add-fzf-arg=--nth=3<Space>
 
 " Mappings for CoCList
@@ -55,4 +54,5 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <silent> <leader>s :<C-u>call CocActionAsync('jumpDefinition', CocJumpAction())<CR>
 nnoremap <silent><nowait> <leader>cr  :<C-u>CocRestart<CR>
 autocmd FileType go nmap <leader>gt :GoTests<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
