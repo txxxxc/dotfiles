@@ -146,6 +146,12 @@ endfunction
 "" treesitter
 
 lua <<EOF
+require('toggleterm').setup {
+	shell = 'fish',
+	direction = 'tab',
+	shade_terminals = true
+}
+
 require('nvim-treesitter.configs').setup {
   ensure_installed = {
 		"cpp",
