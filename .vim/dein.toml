@@ -11,6 +11,14 @@ repo = "altercation/vim-colors-solarized"
 repo = "cespare/vim-toml"
 
 [[plugins]]
+repo = "akinsho/toggleterm.nvim"
+tag = "*"
+hook_add = '''
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+'''
+
+[[plugins]]
 repo = "jparise/vim-graphql"
 
 [[plugins]]
@@ -84,6 +92,7 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver', 
       \ 'coc-toml', 
       \ 'coc-ultisnips', 
+      \ 'coc-vimlsp', 
       \ 'coc-yank', 
       \ 'coc-yaml',
 			\ 'coc-sourcekit',
