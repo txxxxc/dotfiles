@@ -3,8 +3,11 @@ alt - h: yabai -m window --focus west || yabai -m display --focus west
 alt - l: yabai -m window --focus east || yabai -m display --focus east
 alt - j: yabai -m window --focus south || yabai -m display --focus south
 alt - k: yabai -m window --focus north || yabai -m display --focus north
-alt - n: yabai -m window --focus next || yabai -m display --focus next
+# alt - n: yabai -m window --focus next || yabai -m display --focus next
 alt - p: yabai -m window --focus prev || yabai -m display --focus prev
+
+# clockwise rotate tree
+alt - r : yabai -m space --rotate 90
 
 # (alt) change focus (using arrow keys)
 alt - left  : yabai -m window --focus west
@@ -109,15 +112,15 @@ alt - p : yabai -m query --spaces --space \
             | xargs -I{} yabai -m window --focus {}
 
 # backwards
-alt - n : yabai -m query --spaces --space \
-            | jq -re ".index" \
-            | xargs -I{} yabai -m query --windows --space {} \
-            | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
-            | xargs -I{} yabai -m window --focus {}
+# alt - n : yabai -m query --spaces --space \
+#             | jq -re ".index" \
+#             | xargs -I{} yabai -m query --windows --space {} \
+#             | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+#             | xargs -I{} yabai -m window --focus {}
 
 # restart yabai
 ctrl + cmd + alt - r : /usr/bin/env osascript -e "display notification \"Restarting Yabai\" with title \"Yabai\""; brew services restart yabai
 
+alt - n: osascript ~/dotfiles/apple_scripts/focus_notion.scpt
 alt - s: osascript ~/dotfiles/apple_scripts/focus_spotify.scpt
-
 
