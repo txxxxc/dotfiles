@@ -74,9 +74,6 @@ set encoding=utf-8 " エンコードをUTF-8に設定
 language en_US.UTF-8 " 言語設定をUSに
 set shell=/bin/zsh " shellをzshに設定
 set noswapfile " swpファイル出力無効
-syntax on " シンタックスハイライト
-syntax enable 
-set laststatus=2 " ステータスラインの有効化
 set clipboard+=unnamed
 set relativenumber
 set incsearch " 検索文字列入力時に順次対象文字列にヒットさせる
@@ -92,8 +89,6 @@ set hidden
 set nobackup
 set nowritebackup
 
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -134,14 +129,6 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" hi Visual guifg=Yellow guibg=Red gui=none
-" 背景
-" カラーテーマの設定
-" exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
-"let s:base03      = "234"
-"hi Visual term=none ctermfg=235 guifg=61 gui=bold
-" hi Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
-"CursorLine     xxx ctermbg=0 guibg=Grey40
 
 "" treesitter
 
