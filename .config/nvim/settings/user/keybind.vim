@@ -2,6 +2,9 @@ inoremap jk <Esc>
 nmap <CR> o<ESC>
 inoremap <C-l> <C-O>
 inoremap <C-h> <C-O>
+" CTRL-G u: undoできない編集らしい
+inoremap <C-j> <C-g>U<Down>
+inoremap <C-k> <C-g>U<Up>
 noremap <S-h> ^
 noremap <S-l> $
 nnoremap <C-t> :Fern . -reveal=% -drawer -toggle -width=40<CR>
