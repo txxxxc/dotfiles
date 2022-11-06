@@ -3,7 +3,7 @@ let g:fzf_preview_grep_cmd            = 'rg --line-number --no-heading --color=n
 let g:fzf_preview_mru_limit           = 500
 let g:fzf_preview_use_dev_icons       = 1
 let g:fzf_preview_default_fzf_options = {
-\ '--reverse': v:true,
+\ '--reverse': v:false,
 \ '--preview-window': 'wrap',
 \ '--no-sort': v:true,
 \ }
