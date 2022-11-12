@@ -200,7 +200,7 @@ hook_add = '''
     \ 'command': 'g++',
     \ 'input': 'stdin.txt',
     \ 'runner': 'system',
-    \ 'cmdopt': '-std=c++14 -Wall -Wextra --pedantic-error'
+    \ 'cmdopt': '-std=c++14 -Wall -Wextra --pedantic-errors'
     \ }
 '''
 
