@@ -1,4 +1,15 @@
+"   " open fern when no args given
+"   if argc() == 1 && !exists('s:std_in')
+"     Fern .
+"   endif
+" endfunction
 
+" 起動時にFernを開く
+" augroup FernSetup
+"   autocmd! *
+"   autocmd VimEnter * ++nested call s:vimenter_fern()
+" augroup END
+" autocmd BufRead COMMIT_EDITMSG autocmd! FernSetup
 autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
@@ -17,17 +28,7 @@ let g:fzf_prefer_tmux = 1
 let g:fzf_layout = { 'down': '~40%' }
 let g:fern#renderer = 'nerdfont'
 let g:fern#default_hidden=1
-set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
-let g:airline_theme='solarized'
-
-" solarized-dark周りの色の設定
-highlight Visual ctermbg=0 guibg=Grey40 cterm=none ctermfg=none
-highlight Pmenu cterm=none ctermfg=12 ctermbg=0
-highlight PmenuSel cterm=underline ctermfg=245 ctermbg=7
-highlight CocFloating cterm=none ctermfg=12 ctermbg=0
-highlight CocMenuSel cterm=underline ctermfg=11 ctermbg=0
+let g:preview_markdown_parser='glow'
 
 execute 'set runtimepath+=~/.config/nvim'
 function! s:init_fern() abort
@@ -45,7 +46,7 @@ autocmd BufNewFile ~/projects/me/AtCoder/**/*.cpp :0r ~/.config/nvim/templates/a
 autocmd BufNewFile ~/projects/github.com/Tomoya113/aoj/*/** :0r ~/.config/nvim/templates/atcoder.cpp
 autocmd BufNewFile,BufRead *.golden set filetype=json
 " for fish shell
-autocmd FileType fish colorscheme fish-default
+" autocmd FileType fish colorscheme fish-default
 
 au FileType * set fo-=c fo-=r fo-=o
 set fo-=c fo-=r fo-=o
