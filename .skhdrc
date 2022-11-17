@@ -30,10 +30,10 @@ alt + shift - up : yabai -m window --swap north || $(yabai -m window --display n
 alt + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 
 # (alt) set insertion point in focused container using arrows
-alt + ctrl - left  : yabai -m window --insert west
-alt + ctrl - down  : yabai -m window --insert south
-alt + ctrl - up    : yabai -m window --insert north
-alt + ctrl - right : yabai -m window --insert east
+# alt + ctrl - left  : yabai -m window --insert west
+# alt + ctrl - down  : yabai -m window --insert south
+# alt + ctrl - up    : yabai -m window --insert north
+# alt + ctrl - right : yabai -m window --insert east
 
 # increase window size
 shift + alt - a : yabai -m window --resize left:-20:0
