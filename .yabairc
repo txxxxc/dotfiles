@@ -53,7 +53,7 @@ yabai -m rule --add app='^システム環境設定$' manage=off
 yabai -m rule --add app='^Finder$' manage=off
 yabai -m rule --add app='^zoom.us$' manage=off
 yabai -m rule --add app='^Notion$' manage=off sticky=on layer=above
-yabai -m rule --add app='^Asana$' manage=off sticky=on layer=above
+# yabai -m rule --add app='^Asana$' manage=off sticky=off layer=above
 yabai -m rule --add app='^Spotify$' manage=off sticky=on layer=above
 yabai -m rule --add app='^LINE$' manage=off sticky=on
 yabai -m rule --add title='Preferences$' manage=off
@@ -61,8 +61,11 @@ yabai -m rule --add title='Preferences$' manage=off
 # float settings windows
 yabai -m rule --add title='Settings$' manage=off
 
+# window management
+yabai -m rule --add app='^Asana$' space=^1
+
 ## spacebar config
-SPACEBAR_HEIGHT=$(spacebar -m config height)
-yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
-yabai -m config external_bar all:26:0
+# SPACEBAR_HEIGHT=$(spacebar -m config height)
+# yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
+# yabai -m config external_bar all:26:0
 

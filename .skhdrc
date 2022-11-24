@@ -119,5 +119,5 @@ ctrl + cmd + alt - r : /usr/bin/env osascript -e "display notification \"Restart
 
 alt - n: osascript ~/dotfiles/apple_scripts/focus_notion.scpt
 alt - s: osascript ~/dotfiles/apple_scripts/focus_spotify.scpt
-alt - a: osascript ~/dotfiles/apple_scripts/focus_asana.scpt
+# alt - a: osascript ~/dotfiles/apple_scripts/focus_asana.scpt
 
