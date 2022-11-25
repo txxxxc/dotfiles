@@ -31,5 +31,6 @@
   "stylelintplus.autoFixOnFormat": true,
   "stylelintplus.validateOnSave": true,
   "jedi.enable": true,
-  "jedi.executable.command": "~/.anyenv/envs/pyenv/shims/jedi-language-server"
+  "jedi.executable.command": "~/.anyenv/envs/pyenv/shims/jedi-language-server",
+  "prettier.disableLanguages": ["cpp"]
 }
