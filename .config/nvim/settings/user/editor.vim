@@ -42,7 +42,7 @@ augroup my-glyph-palette
   autocmd FileType fern call glyph_palette#apply()
   autocmd FileType nerdtree,startify call glyph_palette#apply()
 augroup END
-autocmd BufNewFile ~/projects/me/AtCoder/**/*.cpp :0r ~/.config/nvim/templates/atcoder.cpp
+autocmd BufNewFile ~/projects/github.com/txxxxc/competitive-programming/**/*.cpp :0r ~/.config/nvim/templates/atcoder.cpp
 autocmd BufNewFile ~/projects/github.com/Tomoya113/aoj/*/** :0r ~/.config/nvim/templates/atcoder.cpp
 autocmd BufNewFile,BufRead *.golden set filetype=json
 " for fish shell
