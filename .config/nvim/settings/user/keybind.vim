@@ -7,8 +7,7 @@ inoremap <C-j> <C-g>U<Down>
 inoremap <C-k> <C-g>U<Up>
 noremap <S-h> ^
 noremap <S-l> $
-nnoremap <C-t> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+
 nnoremap <silent> cp :!echo %:p \| pbcopy<CR>
 
 " quickfix
