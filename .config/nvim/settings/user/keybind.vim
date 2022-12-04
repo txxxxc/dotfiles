@@ -9,7 +9,7 @@ noremap <S-h> ^
 noremap <S-l> $
 
 nnoremap <silent> cp :!echo %:p \| pbcopy<CR>
-
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " quickfix
 " 前へ
 nnoremap [q :cprevious<CR>
