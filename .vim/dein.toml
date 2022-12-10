@@ -1,7 +1,4 @@
 [[plugins]]
-repo = "skanehira/preview-markdown.vim"
-
-[[plugins]]
 repo = "machakann/vim-sandwich"
 
 [[plugins]]
@@ -53,9 +50,6 @@ repo = 'yuki-yano/fzf-preview.vim'
 rev = 'release/remote'
 dependes = ['junegunn/fzf']
 
-[[plugins]]
-repo = 'lambdalisue/gina.vim'
-dependes = ['yuki-yano/fzf-preview.vim']
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -168,12 +162,6 @@ repo = 'lambdalisue/fern-git-status.vim'
 repo = 'lambdalisue/glyph-palette.vim'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -272,25 +260,11 @@ repo = 'vim-denops/denops.vim'
 repo = 'vim-denops/denops-helloworld.vim'
 
 [[plugins]]
-repo = 'Shougo/ddu.vim'
-
-[[plugins]]
-repo = 'Shougo/ddu-ui-filer'
-
-[[plugins]]
-repo = 'Shougo/ddu-source-file'
-
-[[plugins]]
-repo = 'Shougo/ddu-kind-file'
-
-[[plugins]]
-repo = 'Shougo/ddu-column-filename'
-
-[[plugins]]
 repo = 'lambdalisue/gin.vim'
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
+repo = 'lambdalisue/gina.vim'
+dependes = ['yuki-yano/fzf-preview.vim']
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
