@@ -1,5 +1,5 @@
 inoremap jk <Esc>
-nmap <CR> o<ESC>
+nnoremap <CR> o<ESC>
 inoremap <C-l> <C-O>
 inoremap <C-h> <C-O>
 " CTRL-G u: undoできない編集らしい
@@ -34,7 +34,7 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-p> :TmuxNavigatePrevious<cr>
 
-nmap <Esc><Esc> :nohl<CR>
+nnoremap <Esc><Esc> :nohl<CR>
 
 " coc
 " Use <c-space> to trigger completion.
@@ -45,7 +45,7 @@ else
 endif
 
 " vim-sandwich
-nmap s <Nop>
+nnoremap s <Nop>
 xmap s <Nop>
 
 " far.vim
