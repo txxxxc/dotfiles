@@ -476,8 +476,8 @@ vim.cmd("set clipboard+=unnamedplus")
 vim.keymap.set('n', '<leader>rl', ':luafile %<CR>', {desc = '[R]eload init.[L]ua', silent = true })
 vim.keymap.set('n', '<ESC><ESC>', ':nohl <CR>', { desc = 'erase highlights', silent = true })
 vim.keymap.set('n', '<C-n>', ':Fern . -reveal=% -drawer -toggle -width=40<CR>', { desc = 'toggle Fern', silent = true })
-vim.keymap.set('n', '<S-h>', '^')
-vim.keymap.set('n', '<S-l>', '$')
+vim.keymap.set('', '<S-h>', '^')
+vim.keymap.set('', '<S-l>', '$')
 
 -- Stop automatic newline continuation of comments
 vim.opt.formatoptions:remove "c"
