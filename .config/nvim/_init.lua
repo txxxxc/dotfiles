@@ -494,7 +494,7 @@ vim.g['fern#default_hidden'] = true
 vim.g['fern#default_exclude'] = '^\\%(\\.git\\|\\.DS_Store\\)$'
 
 vim.api.nvim_create_autocmd('BufWritePre', {
-  group = vim.api.nvim_create_augroup('AutocmdsJavaScripFormatting', {}),
+  group = vim.api.nvim_create_augroup('MyAutocmdsJavaScriptFormatting', {}),
   pattern = { '*.tsx', '*.ts', '*.jsx', '*.js', '*.vue' },
   command = 'silent! EslintFixAll',
 })
