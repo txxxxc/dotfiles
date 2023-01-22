@@ -483,8 +483,9 @@ vim.keymap.set('n', '<ESC><ESC>', ':nohl <CR>', { desc = 'erase highlights', sil
 vim.keymap.set('n', '<C-n>', ':Fern . -reveal=% -drawer -toggle -width=40<CR>', { desc = 'toggle Fern', silent = true })
 vim.keymap.set('', '<S-h>', '^')
 vim.keymap.set('', '<S-l>', '$')
-vim.keymap.set('i', '<C-f>', '<C-O>l')
+vim.keymap.set('i', '<C-f>', '<C-O>a')
 vim.keymap.set('i', '<C-b>', '<C-O>h')
+vim.keymap.set('n', '<S-Q>', ':q<CR>')
 
 
 -- Stop automatic newline continuation of comments
