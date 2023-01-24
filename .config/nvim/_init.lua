@@ -455,10 +455,15 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
+  sources = cmp.config.sources({
+    { name = 'luasnip', option = { show_autosnippets = false } },
+    {
+      name = "nvim_lsp",
+      entry_filter = function(entry)
+          return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+      end
+    },
+  }),
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
@@ -473,7 +478,6 @@ vim.diagnostic.config({
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -- Use os clipboard
 vim.cmd("set clipboard+=unnamedplus")
