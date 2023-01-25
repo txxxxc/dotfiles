@@ -478,6 +478,32 @@ vim.diagnostic.config({
 
 -- Show line diagnostics automatically in hover window
 vim.o.updatetime = 250
+vim.api.nvim_create_autocmd(
+  {"CursorHold", "CursorHoldI"},
+  {
+    pattern = "*",
+    callback = function()
+      for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.api.nvim_win_get_config(winid).zindex then
+          return
+        end
+      end
+      vim.diagnostic.open_float(
+        {
+          format = function(diagnostic)
+            return string.format(
+              "%s (%s: %s)",
+              diagnostic.message,
+              diagnostic.source,
+              diagnostic.code
+            )
+          end
+        },
+        { focus = false, }
+      )
+    end
+  }
+)
 
 -- Use os clipboard
 vim.cmd("set clipboard+=unnamedplus")
