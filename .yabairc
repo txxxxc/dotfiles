@@ -58,6 +58,7 @@ yabai -m rule --add app='^Notion$' manage=off sticky=on layer=above
 # yabai -m rule --add app='^Asana$' manage=off sticky=off layer=above
 yabai -m rule --add app='^Spotify$' manage=off sticky=on layer=above
 yabai -m rule --add app='^LINE$' manage=off sticky=on
+yabai -m rule --add app='^カレンダー$' manage=off sticky=on layer=above
 yabai -m rule --add title='Preferences$' manage=off
 
 # float settings windows
