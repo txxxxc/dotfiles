@@ -1,0 +1,37 @@
+-- require('toggleterm').setup {
+-- 	shell = 'fish',
+-- 	direction = 'tab',
+-- 	shade_terminals = true
+-- }
+
+-- require('nvim-treesitter.configs').setup {
+--   ensure_installed = {
+--     "cpp",
+--     "css",
+--     "dockerfile",
+--     "fish",
+--     "gitignore",
+--     "go",
+--     "html",
+--     "http",
+--     "json",
+--     "markdown",
+--     "markdown_inline",
+--     "python",
+--     "ruby",
+--     "swift",
+--     "scss",
+--     "toml",
+--     "tsx",
+--     "javascript",
+--     "typescript",
+--     "vue",
+--     "vim",
+--     "yaml"
+--   },
+--   auto_install = true,
+--   highlight = {
+--     enable = true
+--     disable = {"vue"}
+--   }
+-- }
