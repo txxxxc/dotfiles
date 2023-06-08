@@ -9,7 +9,7 @@ alt - k: yabai -m window --focus north || yabai -m display --focus north
 alt - p: yabai -m window --focus prev || yabai -m display --focus prev
 
 # clockwise rotate tree
-alt - r : yabai -m space --rotate 90
+# alt - r : yabai -m space --rotate 90
 
 # (alt) change focus (using arrow keys)
 alt - left  : yabai -m window --focus west
@@ -117,7 +117,7 @@ alt - p : yabai -m query --spaces --space \
 # restart yabai
 ctrl + cmd + alt - r : /usr/bin/env osascript -e "display notification \"Restarting Yabai\" with title \"Yabai\""; brew services restart yabai
 
-alt - n: osascript ~/dotfiles/apple_scripts/focus_notion.scpt
+# alt - n: osascript ~/dotfiles/apple_scripts/focus_notion.scpt
 alt - s: osascript ~/dotfiles/apple_scripts/focus_spotify.scpt
 # alt - a: osascript ~/dotfiles/apple_scripts/focus_asana.scpt
 
