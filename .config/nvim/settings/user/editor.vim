@@ -122,40 +122,40 @@ endfunction
 
 "" treesitter
 
-lua <<EOF
-require('toggleterm').setup {
-	shell = 'fish',
-	direction = 'tab',
-	shade_terminals = true
-}
-
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {
-		"cpp",
-		"css",
-		"dockerfile",
-		"fish",
-		"gitignore",
-		"go",
-		"html",
-		"http",
-		"json",
-		"markdown",
-		"markdown_inline",
-    "python",
-    "ruby",
-    "swift",
-    "toml",
-    "tsx",
-    "typescript",
-    "vue",
-    "vim",
-    "yaml",
-  },
-  highlight = {
-    enable = true,
-  },
-	auto_install = true,
-}
-EOF
-
+" lua <<EOF
+" require('toggleterm').setup {
+" 	shell = 'fish',
+" 	direction = 'tab',
+" 	shade_terminals = true
+" }
+"
+" require('nvim-treesitter.configs').setup {
+"   ensure_installed = {
+" 		"cpp",
+" 		"css",
+" 		"dockerfile",
+" 		"fish",
+" 		"gitignore",
+" 		"go",
+" 		"html",
+" 		"http",
+" 		"json",
+" 		"markdown",
+" 		"markdown_inline",
+"     "python",
+"     "ruby",
+"     "swift",
+"     "toml",
+"     "tsx",
+"     "typescript",
+"     "vue",
+"     "vim",
+"     "yaml",
+"   },
+"   highlight = {
+"     enable = true,
+"   },
+" 	auto_install = true,
+" }
+" EOF
+"
