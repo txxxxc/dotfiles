@@ -55,6 +55,7 @@ yabai -m rule --add app='^$' manage=off
 yabai -m rule --add app='^Finder$' manage=off
 yabai -m rule --add app='^zoom.us$' manage=off
 yabai -m rule --add app='^Notion$' manage=off sticky=on layer=above
+yabai -m rule --add app='^Shottr$' manage=off sticky=on layer=above
 # yabai -m rule --add app='^Asana$' manage=off sticky=off layer=above
 yabai -m rule --add app='^Spotify$' manage=off sticky=on layer=above
 yabai -m rule --add app='^LINE$' manage=off sticky=on
