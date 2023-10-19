@@ -78,11 +78,18 @@ end
 local servers = {
   clangd = {},
   tsserver = {},
-
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
+      },
       telemetry = { enable = false },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
     },
   },
 }
@@ -153,7 +160,7 @@ cmp.setup {
     {
       name = "nvim_lsp",
       entry_filter = function(entry)
-          return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+        return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
       end
     },
   }),
@@ -162,7 +169,7 @@ cmp.setup {
 -- personal settings
 
 vim.api.nvim_create_autocmd(
-  {"CursorHold", "CursorHoldI"},
+  { "CursorHold", "CursorHoldI" },
   {
     pattern = "*",
     callback = function()
@@ -188,10 +195,11 @@ vim.api.nvim_create_autocmd(
   }
 )
 
-vim.api.nvim_create_autocmd("BufEnter",{ callback =
-  function()
-    vim.opt.formatoptions = vim.opt.formatoptions - { "c","r","o" }
-  end,
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback =
+      function()
+        vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+      end,
 })
 
 
@@ -202,7 +210,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 -- nvim-tmux-navigation
-require'nvim-tmux-navigation'.setup {
+require 'nvim-tmux-navigation'.setup {
   disable_when_zoomed = true, -- defaults to false
   keybindings = {
     left = "<c-h>",
@@ -216,7 +224,7 @@ require'nvim-tmux-navigation'.setup {
 local template_group = vim.api.nvim_create_augroup('template', { clear = true })
 vim.api.nvim_create_autocmd('BufNewFile', {
   group = template_group,
-  command = '0r ~/.config/nvim/templates/atcoder.cpp',
+  command = '0r ~/.config/sub-nvim/templates/atcoder.cpp',
   pattern = '*/competitive-programming/**/*.cpp',
 })
 
@@ -225,8 +233,9 @@ vim.g['quickrun_config'] = {
   cpp = {
     command = 'g++',
     input = 'stdin.txt',
-    -- コイツらだめでした→-fsanitize=address -fsanitize=undefined 
-    cmdopt = '-Wall -Wextra -pedantic -std=c++14 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wshift-overflow -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fno-sanitize-recover -fstack-protector',
+    -- コイツらだめでした→-fsanitize=address -fsanitize=undefined
+    cmdopt =
+    '-Wall -Wextra -pedantic -std=c++14 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wshift-overflow -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fno-sanitize-recover -fstack-protector',
   },
   _ = {
     ['outputter/error/success'] = 'buffer',
@@ -240,5 +249,90 @@ function Execute()
   vim.cmd("vnew | put=system('exe index.cpp && timeout 2 ./a.out < stdin.txt && echo && echo ended')")
 end
 
-vim.keymap.set('n', '<leader>q', ':lua Execute()<CR>')
+local function getCppWindowID()
+  -- すべてのウィンドウのIDを取得
+  local win_ids = vim.api.nvim_list_wins()
 
+  for _, win_id in ipairs(win_ids) do
+    -- 各ウィンドウのバッファIDを取得
+    local buf_id = vim.api.nvim_win_get_buf(win_id)
+    -- バッファの名前（ファイルのパス）を取得
+    local buf_name = vim.api.nvim_buf_get_name(buf_id)
+
+    -- バッファの名前が .cpp で終わっているかどうかを確認
+    if buf_name:match("%.cpp$") then
+      return win_id
+    end
+  end
+
+  -- C++ファイルを開いているウィンドウが見つからなかった場合はnilを返す
+  return nil
+end
+
+local function findBufferByName(buffer_name)
+  -- 全てのバッファの番号を取得
+  local bufs = vim.api.nvim_list_bufs()
+
+  for _, bufnr in ipairs(bufs) do
+    -- 各バッファの名前を取得
+    local name = vim.api.nvim_buf_get_name(bufnr)
+    if name == buffer_name then
+      return bufnr
+    end
+  end
+
+  -- 指定した名前のバッファが見つからない場合はnilを返す
+  return nil
+end
+
+local atcoder_buffer_name = "atcoder-result"
+
+function showOrOpenBufferByName()
+  -- 実行した際に居たウィンドウのIDを取得
+  local current_win_id = vim.api.nvim_get_current_win()
+
+  -- バッファの番号を取得
+  local bufnr = vim.fn.bufnr(atcoder_buffer_name)
+
+  -- バッファが存在しない場合、新しいバッファを作成する
+  if bufnr == -1 then
+    local new_buf = vim.api.nvim_create_buf(false, true)
+    -- バッファに名前を割り当てる
+    vim.api.nvim_buf_set_name(new_buf, atcoder_buffer_name)
+    bufnr = new_buf
+  end
+
+  local result = vim.fn.systemlist('exe index.cpp && timeout 2 ./a.out < stdin.txt && echo && echo ended')
+
+  -- すべてのウィンドウのIDを取得
+  local all_window_ids = vim.api.nvim_list_wins()
+  local found = false
+
+  for _, win_id in ipairs(all_window_ids) do
+    -- 各ウィンドウで表示されているバッファの番号を取得
+    local win_bufnr = vim.api.nvim_win_get_buf(win_id)
+    if win_bufnr == bufnr then
+      -- バッファが表示されているウィンドウが見つかった場合
+      vim.api.nvim_set_current_win(win_id) -- そのウィンドウをアクティブにする
+      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, result)
+      found = true
+      break
+    end
+  end
+
+  if not found then
+    -- バッファが表示されているウィンドウが見つからなかった場合、新しいウィンドウを開く
+    vim.cmd("vnew")
+    vim.api.nvim_win_set_buf(0, bufnr)
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, result)
+  end
+
+  local cpp_win_id = getCppWindowID()
+  -- 実行した際に居たウィンドウに戻る
+  vim.api.nvim_set_current_win(cpp_win_id)
+end
+
+-- Neovimのコマンドとして登録
+vim.cmd("command! OpenOrCreateBuffer lua showOrOpenBufferByName()")
+
+vim.keymap.set('n', '<leader>q', ':lua showOrOpenBufferByName()<CR>')
