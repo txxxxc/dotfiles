@@ -4,7 +4,9 @@ SETUVAR --export REVIEWDOG_GITHUB_API_TOKEN:ghp_HJ7slo7wIrbVrYhU2FUNDrocFsAnSk34
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_at:atcoder
 SETUVAR _fish_abbr_atf:atcoder\x20first
+SETUVAR _fish_abbr_ghv:gh\x20repo\x20view\x20\x2d\x2dweb
 SETUVAR _fish_abbr_gi:gh\x20issue\x20list
+SETUVAR _fish_abbr_go:gh\x20repo\x20view\x20\x2d\x2dweb
 SETUVAR _fish_abbr_gp:gh\x20pr\x20list
 SETUVAR _fish_abbr_il:gh\x20issue\x20list
 SETUVAR _fish_abbr_mk:mkdir
