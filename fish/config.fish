@@ -30,4 +30,6 @@ end
 # pnpm end
 
 bind -M insert \cg fgh
+bind -M insert \cn down-or-search
+bind -M insert \cp up-or-search
 
