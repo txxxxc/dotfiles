@@ -1,8 +1,8 @@
 # Returns 0 if fish is interactive - that is, connected to a keyboard.
 if status is-interactive
-	## エラー出るけどasdf自体は動いているので一旦エラーが出力されないように握りつぶします
-	eval (/opt/homebrew/bin/brew shellenv)
-	source /opt/homebrew/opt/asdf/libexec/asdf.fish &> /dev/null
+  ## エラー出るけどasdf自体は動いているので一旦エラーが出力されないように握りつぶします
+  eval (/opt/homebrew/bin/brew shellenv)
+  source /opt/homebrew/opt/asdf/libexec/asdf.fish &> /dev/null
 end
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx EDITOR nvim
@@ -29,7 +29,11 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
+set -g fish_key_bindings fish_hybrid_key_bindings
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
 bind -M insert \cg fgh
-bind -M insert \cn down-or-search
-bind -M insert \cp up-or-search
+bind -M insert \co forward-char
 
