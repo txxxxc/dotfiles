@@ -37,3 +37,26 @@ set fish_cursor_visual block
 bind -M insert \cg fgh
 bind -M insert \co forward-char
 
+zoxide init fish | source
+
+## abbr
+abbr -a -- L '--position anywhere --set-cursor ! ! | less' # imported from a universal variable, see `help abbr`
+abbr -a -- atf 'atcoder first' # imported from a universal variable, see `help abbr`
+abbr -a -- dc docker-compose # imported from a universal variable, see `help abbr`
+abbr -a -- gi 'gh issue list' # imported from a universal variable, see `help abbr`
+abbr -a -- sb storybook # imported from a universal variable, see `help abbr`
+abbr -a -- pnpm 'corepack pnpm' # imported from a universal variable, see `help abbr`
+abbr -a -- foo '--set-cursor bar % baz' # imported from a universal variable, see `help abbr`
+abbr -a -- ghv 'gh repo view --web' # imported from a universal variable, see `help abbr`
+abbr -a -- at atcoder # imported from a universal variable, see `help abbr`
+abbr -a -- gov 'gh repo view --web' # imported from a universal variable, see `help abbr`
+abbr -a -- mk mkdir # imported from a universal variable, see `help abbr`
+abbr -a -- gp 'gh pr list' # imported from a universal variable, see `help abbr`
+abbr -a -- npm 'corepack npm' # imported from a universal variable, see `help abbr`
+abbr -a -- il 'gh issue list' # imported from a universal variable, see `help abbr`
+abbr -a -- pn 'corepack pnpm' # imported from a universal variable, see `help abbr`
+abbr -a -- npx 'corepack npx' # imported from a universal variable, see `help abbr`
+abbr -a -- pnpx 'corepack pnpx' # imported from a universal variable, see `help abbr`
+abbr -a -- yarn 'corepack yarn' # imported from a universal variable, see `help abbr`
+abbr -a -- y 'corepack yarn' # imported from a universal variable, see `help abbr`
+abbr -a gic --set-cursor "gh issue create --title \"%\""
