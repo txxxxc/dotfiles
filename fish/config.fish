@@ -9,12 +9,12 @@ set -gx EDITOR nvim
 fish_add_path $HOME/bin
 fish_add_path /opt/homebrew/bin
 
+# /Users/tomoya_tanaka/.asdf/installs/golang/1.21.0
 # golang
-set -x GOPATH (go env GOPATH)
-set -x GOROOT (go env GOROOT)
-set -x GOBIN (go env GOPATH)/bin
-fish_add_path $GOPATH/bin
-fish_add_path $GOROOT/bin
+set -x GOPATH (asdf where golang)
+set -x GOROOT (asdf where golang)/go
+set -x GOBIN (asdf where golang)/packages/bin
+fish_add_path $GOPATH/go/bin
 fish_add_path $GOBIN
 
 # mint
@@ -59,4 +59,10 @@ abbr -a -- npx 'corepack npx' # imported from a universal variable, see `help ab
 abbr -a -- pnpx 'corepack pnpx' # imported from a universal variable, see `help abbr`
 abbr -a -- yarn 'corepack yarn' # imported from a universal variable, see `help abbr`
 abbr -a -- y 'corepack yarn' # imported from a universal variable, see `help abbr`
-abbr -a gic --set-cursor "gh issue create --title \"%\""
+abbr -a gic --set-cursor "gh issue create --title \"%\" --body \"\"" # imported from a universal variable, see `help abbr`
+abbr -a m "make" # imported from a universal variable, see `help abbr`
+abbr -a gil "gh issue list" # imported from a universal variable, see `help abbr`
+abbr -a svim 'set -gx NVIM_APPNAME sub-nvim && nvim'
+abbr -a mvim 'set -gx NVIM_APPNAME nvim && nvim'
+abbr -a cvim --set-cursor 'set -gx NVIM_APPNAME % && nvim'
+
