@@ -15,7 +15,7 @@
 	st = status
 
 [pull]
-	rebase = false
+	rebase = true
 
 [merge]
 	tool = vimdiff
