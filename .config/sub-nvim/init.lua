@@ -1,25 +1,7 @@
 require('plugins')
 require('editor')
 require('keymaps')
-
--- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
-  group = packer_group,
-  pattern = vim.fn.expand '$MYVIMRC',
-})
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
+require('autocmd')
 
 -- Enable Comment.nvim
 require('Comment').setup()
@@ -30,7 +12,6 @@ local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
-  --
 
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
@@ -44,7 +25,6 @@ local on_attach = function(_, bufnr)
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
@@ -71,8 +51,8 @@ local on_attach = function(_, bufnr)
 end
 
 -- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
+--  Feel free to add/remove any LSPs that you want here. They will automatically be installed
+
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -167,7 +147,6 @@ cmp.setup {
 }
 
 -- personal settings
-
 vim.api.nvim_create_autocmd(
   { "CursorHold", "CursorHoldI" },
   {
@@ -195,19 +174,6 @@ vim.api.nvim_create_autocmd(
   }
 )
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback =
-      function()
-        vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
-      end,
-})
-
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = vim.api.nvim_create_augroup('MyAutocmdsJavaScriptFormatting', {}),
-  pattern = { '*.tsx', '*.ts', '*.jsx', '*.js', '*.vue' },
-  command = 'silent! EslintFixAll',
-})
 
 -- nvim-tmux-navigation
 require 'nvim-tmux-navigation'.setup {
@@ -220,13 +186,6 @@ require 'nvim-tmux-navigation'.setup {
   }
 }
 
--- competitive programming
-local template_group = vim.api.nvim_create_augroup('template', { clear = true })
-vim.api.nvim_create_autocmd('BufNewFile', {
-  group = template_group,
-  command = '0r ~/.config/sub-nvim/templates/atcoder.cpp',
-  pattern = '*/competitive-programming/**/*.cpp',
-})
 
 -- vim.keymap.set('n', '<leader>q', ':QuickRun<CR>')
 vim.g['quickrun_config'] = {
@@ -244,6 +203,7 @@ vim.g['quickrun_config'] = {
     ['hook/time/enable'] = 1,
   }
 }
+
 -- これみたい：https://www.reddit.com/r/neovim/comments/q5z38t/easiest_way_to_find_if_a_buffer_is_hidden/
 function Execute()
   vim.cmd("vnew | put=system('exe index.cpp && timeout 2 ./a.out < stdin.txt && echo && echo ended')")
@@ -288,9 +248,6 @@ end
 local atcoder_buffer_name = "atcoder-result"
 
 function showOrOpenBufferByName()
-  -- 実行した際に居たウィンドウのIDを取得
-  local current_win_id = vim.api.nvim_get_current_win()
-
   -- バッファの番号を取得
   local bufnr = vim.fn.bufnr(atcoder_buffer_name)
 

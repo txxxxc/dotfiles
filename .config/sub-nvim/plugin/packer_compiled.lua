@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.1699801871/share/lua/5.1/?.lua;/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.1699801871/share/lua/5.1/?/init.lua;/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.1699801871/lib/luarocks/rocks-5.1/?.lua;/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.1699801871/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/tomoya_tanaka/.cache/sub-nvim/packer_hererocks/2.1.1699801871/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -122,7 +122,7 @@ _G.packer_plugins = {
     url = "https://github.com/lambdalisue/glyph-palette.vim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5#show_trailing_blankline_indent\1\31show_current_context_start\2\25show_current_context\2\25space_char_blankline\6 \tchar\bâ”Š\nsetup\21indent_blankline\frequire\0" },
+    config = { "\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\tchar\bâ”Š\31show_current_context_start\2\25show_current_context\2\25space_char_blankline\6 #show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\0" },
     loaded = true,
     path = "/Users/tomoya_tanaka/.local/share/sub-nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -133,7 +133,7 @@ _G.packer_plugins = {
     url = "https://github.com/cohama/lexima.vim"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\n—\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\4\ntheme\fnordfox\18icons_enabled\1\25component_separators\6|\23section_separators\5\nsetup\flualine\frequire\0" },
+    config = { "\27LJ\2\n—\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\4\18icons_enabled\1\25component_separators\6|\23section_separators\5\ntheme\fnordfox\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "/Users/tomoya_tanaka/.local/share/sub-nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -164,7 +164,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\2K\0\1\0\14lspconfig\frequire\0" },
+    config = { "\27LJ\2\n”\2\0\0\6\0\n\0\0146\0\0\0'\2\1\0B\0\2\0029\1\2\0009\1\3\0015\3\5\0005\4\4\0=\4\6\0035\4\b\0005\5\a\0=\5\6\4=\4\t\3B\1\2\1K\0\1\0\17init_options\1\0\0\1\0\4\15javascript\veslint\20typescriptreact\veslint\15typescript\veslint\20javascriptreact\veslint\14filetypes\1\0\0\1\6\0\0\15javascript\20javascriptreact\15typescript\20typescriptreact\bcss\nsetup\17diagnosticls\14lspconfig\frequire\0" },
     loaded = true,
     path = "/Users/tomoya_tanaka/.local/share/sub-nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -176,7 +176,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "nvim-treesitter-textobjects" },
-    config = { "\27LJ\2\n¾\b\0\0\6\0%\0)6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0005\4\t\0=\4\n\3=\3\v\0025\3\f\0005\4\r\0=\4\14\3=\3\15\0025\3\18\0005\4\16\0005\5\17\0=\5\14\4=\4\19\0035\4\20\0005\5\21\0=\5\22\0045\5\23\0=\5\24\0045\5\25\0=\5\26\0045\5\27\0=\5\28\4=\4\29\0035\4\30\0005\5\31\0=\5 \0045\5!\0=\5\"\4=\4#\3=\3$\2B\0\2\1K\0\1\0\16textobjects\tswap\18swap_previous\1\0\1\14<leader>A\21@parameter.inner\14swap_next\1\0\1\14<leader>a\21@parameter.inner\1\0\1\venable\2\tmove\22goto_previous_end\1\0\2\a[]\17@class.outer\a[M\20@function.outer\24goto_previous_start\1\0\2\a[m\20@function.outer\a[[\17@class.outer\18goto_next_end\1\0\2\a][\17@class.outer\a]M\20@function.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\14set_jumps\2\venable\2\vselect\1\0\0\1\0\6\aaf\20@function.outer\aif\20@function.inner\aia\21@parameter.inner\aic\17@class.inner\aaa\21@parameter.outer\aac\17@class.outer\1\0\2\14lookahead\2\venable\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\14<c-space>\21node_decremental\18<c-backspace>\19init_selection\14<c-space>\22scope_incremental\n<c-s>\1\0\1\venable\2\vindent\fdisable\1\2\0\0\vpython\1\0\1\venable\2\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\22\0\0\bcpp\bcss\15dockerfile\tfish\14gitignore\ago\thtml\thttp\tjson\rmarkdown\20markdown_inline\vpython\truby\nswift\tscss\ttoml\btsx\15javascript\15typescript\bvue\tyaml\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n¾\b\0\0\6\0%\0)6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0005\4\t\0=\4\n\3=\3\v\0025\3\f\0005\4\r\0=\4\14\3=\3\15\0025\3\18\0005\4\16\0005\5\17\0=\5\14\4=\4\19\0035\4\20\0005\5\21\0=\5\22\0045\5\23\0=\5\24\0045\5\25\0=\5\26\0045\5\27\0=\5\28\4=\4\29\0035\4\30\0005\5\31\0=\5 \0045\5!\0=\5\"\4=\4#\3=\3$\2B\0\2\1K\0\1\0\16textobjects\tswap\18swap_previous\1\0\1\14<leader>A\21@parameter.inner\14swap_next\1\0\1\14<leader>a\21@parameter.inner\1\0\1\venable\2\tmove\22goto_previous_end\1\0\2\a[]\17@class.outer\a[M\20@function.outer\24goto_previous_start\1\0\2\a[m\20@function.outer\a[[\17@class.outer\18goto_next_end\1\0\2\a][\17@class.outer\a]M\20@function.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\venable\2\14set_jumps\2\vselect\1\0\0\1\0\6\aic\17@class.inner\aaa\21@parameter.outer\aac\17@class.outer\aif\20@function.inner\aaf\20@function.outer\aia\21@parameter.inner\1\0\2\venable\2\14lookahead\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\14<c-space>\21node_decremental\18<c-backspace>\19init_selection\14<c-space>\22scope_incremental\n<c-s>\1\0\1\venable\2\vindent\fdisable\1\2\0\0\vpython\1\0\1\venable\2\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\22\0\0\bcpp\bcss\15dockerfile\tfish\14gitignore\ago\thtml\thttp\tjson\rmarkdown\20markdown_inline\vpython\truby\nswift\tscss\ttoml\btsx\15javascript\15typescript\bvue\tyaml\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     only_config = true,
     path = "/Users/tomoya_tanaka/.local/share/sub-nvim/site/pack/packer/start/nvim-treesitter",
@@ -251,34 +251,34 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: fern.vim
-time([[Config for fern.vim]], true)
-try_loadstring("\27LJ\2\ns\0\0\2\0\5\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0K\0\1\0\29^\\%(\\.git\\|\\.DS_Store\\)$\25fern#default_exclude\24fern#default_hidden\6g\bvim\0", "config", "fern.vim")
-time([[Config for fern.vim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5#show_trailing_blankline_indent\1\31show_current_context_start\2\25show_current_context\2\25space_char_blankline\6 \tchar\bâ”Š\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n)\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\2K\0\1\0\14lspconfig\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n—\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\4\ntheme\fnordfox\18icons_enabled\1\25component_separators\6|\23section_separators\5\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\nÓ\1\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\2B\0\2\1K\0\1\0\nsigns\1\0\0\17changedelete\1\0\1\ttext\6~\14topdelete\1\0\1\ttext\bâ€¾\vdelete\1\0\1\ttext\6_\vchange\1\0\1\ttext\6~\badd\1\0\0\1\0\1\ttext\6+\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n¾\b\0\0\6\0%\0)6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0005\4\t\0=\4\n\3=\3\v\0025\3\f\0005\4\r\0=\4\14\3=\3\15\0025\3\18\0005\4\16\0005\5\17\0=\5\14\4=\4\19\0035\4\20\0005\5\21\0=\5\22\0045\5\23\0=\5\24\0045\5\25\0=\5\26\0045\5\27\0=\5\28\4=\4\29\0035\4\30\0005\5\31\0=\5 \0045\5!\0=\5\"\4=\4#\3=\3$\2B\0\2\1K\0\1\0\16textobjects\tswap\18swap_previous\1\0\1\14<leader>A\21@parameter.inner\14swap_next\1\0\1\14<leader>a\21@parameter.inner\1\0\1\venable\2\tmove\22goto_previous_end\1\0\2\a[]\17@class.outer\a[M\20@function.outer\24goto_previous_start\1\0\2\a[m\20@function.outer\a[[\17@class.outer\18goto_next_end\1\0\2\a][\17@class.outer\a]M\20@function.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\14set_jumps\2\venable\2\vselect\1\0\0\1\0\6\aaf\20@function.outer\aif\20@function.inner\aia\21@parameter.inner\aic\17@class.inner\aaa\21@parameter.outer\aac\17@class.outer\1\0\2\14lookahead\2\venable\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\14<c-space>\21node_decremental\18<c-backspace>\19init_selection\14<c-space>\22scope_incremental\n<c-s>\1\0\1\venable\2\vindent\fdisable\1\2\0\0\vpython\1\0\1\venable\2\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\22\0\0\bcpp\bcss\15dockerfile\tfish\14gitignore\ago\thtml\thttp\tjson\rmarkdown\20markdown_inline\vpython\truby\nswift\tscss\ttoml\btsx\15javascript\15typescript\bvue\tyaml\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n¨\2\0\0\6\0\19\0\0266\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\b\0005\3\6\0005\4\4\0005\5\3\0=\5\5\4=\4\a\3=\3\t\0025\3\r\0005\4\v\0005\5\n\0=\5\f\4=\4\14\3=\3\15\2B\0\2\0016\0\16\0006\2\0\0'\4\1\0B\2\2\0029\2\17\2'\3\18\0B\0\3\1K\0\1\0\bfzf\19load_extension\npcall\fpickers\15find_files\1\0\0\17find_command\1\0\0\1\6\0\0\arg\f--files\r--hidden\a-g\29!{node_modules/*,.git/*}\rdefaults\1\0\0\rmappings\1\0\0\6i\1\0\0\1\0\2\n<C-u>\1\n<C-d>\1\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n—\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\4\18icons_enabled\1\25component_separators\6|\23section_separators\5\ntheme\fnordfox\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n¾\b\0\0\6\0%\0)6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0005\4\t\0=\4\n\3=\3\v\0025\3\f\0005\4\r\0=\4\14\3=\3\15\0025\3\18\0005\4\16\0005\5\17\0=\5\14\4=\4\19\0035\4\20\0005\5\21\0=\5\22\0045\5\23\0=\5\24\0045\5\25\0=\5\26\0045\5\27\0=\5\28\4=\4\29\0035\4\30\0005\5\31\0=\5 \0045\5!\0=\5\"\4=\4#\3=\3$\2B\0\2\1K\0\1\0\16textobjects\tswap\18swap_previous\1\0\1\14<leader>A\21@parameter.inner\14swap_next\1\0\1\14<leader>a\21@parameter.inner\1\0\1\venable\2\tmove\22goto_previous_end\1\0\2\a[]\17@class.outer\a[M\20@function.outer\24goto_previous_start\1\0\2\a[m\20@function.outer\a[[\17@class.outer\18goto_next_end\1\0\2\a][\17@class.outer\a]M\20@function.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\2\venable\2\14set_jumps\2\vselect\1\0\0\1\0\6\aic\17@class.inner\aaa\21@parameter.outer\aac\17@class.outer\aif\20@function.inner\aaf\20@function.outer\aia\21@parameter.inner\1\0\2\venable\2\14lookahead\2\26incremental_selection\fkeymaps\1\0\4\21node_incremental\14<c-space>\21node_decremental\18<c-backspace>\19init_selection\14<c-space>\22scope_incremental\n<c-s>\1\0\1\venable\2\vindent\fdisable\1\2\0\0\vpython\1\0\1\venable\2\14highlight\1\0\1\venable\2\21ensure_installed\1\0\0\1\22\0\0\bcpp\bcss\15dockerfile\tfish\14gitignore\ago\thtml\thttp\tjson\rmarkdown\20markdown_inline\vpython\truby\nswift\tscss\ttoml\btsx\15javascript\15typescript\bvue\tyaml\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\n·\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\tchar\bâ”Š\31show_current_context_start\2\25show_current_context\2\25space_char_blankline\6 #show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\n”\2\0\0\6\0\n\0\0146\0\0\0'\2\1\0B\0\2\0029\1\2\0009\1\3\0015\3\5\0005\4\4\0=\4\6\0035\4\b\0005\5\a\0=\5\6\4=\4\t\3B\1\2\1K\0\1\0\17init_options\1\0\0\1\0\4\15javascript\veslint\20typescriptreact\veslint\15typescript\veslint\20javascriptreact\veslint\14filetypes\1\0\0\1\6\0\0\15javascript\20javascriptreact\15typescript\20typescriptreact\bcss\nsetup\17diagnosticls\14lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: fern.vim
+time([[Config for fern.vim]], true)
+try_loadstring("\27LJ\2\ns\0\0\2\0\5\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0K\0\1\0\29^\\%(\\.git\\|\\.DS_Store\\)$\25fern#default_exclude\24fern#default_hidden\6g\bvim\0", "config", "fern.vim")
+time([[Config for fern.vim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\nÓ\1\0\0\5\0\16\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\2B\0\2\1K\0\1\0\nsigns\1\0\0\17changedelete\1\0\1\ttext\6~\14topdelete\1\0\1\ttext\bâ€¾\vdelete\1\0\1\ttext\6_\vchange\1\0\1\ttext\6~\badd\1\0\0\1\0\1\ttext\6+\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)

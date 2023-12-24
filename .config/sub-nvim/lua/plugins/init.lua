@@ -23,7 +23,7 @@ require('packer').startup(function(use)
     },
     config = function()
       local nvim_lsp = require "lspconfig"
-      nvim_lsp.diagnostic.setup {
+      nvim_lsp.diagnosticls.setup {
         filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "css"},
         init_options = {
           filetypes = {
@@ -83,6 +83,7 @@ require('packer').startup(function(use)
   -- Additional lua configuration, makes nvim stuff amazing
   require('plugins.neodev')
 end)
+
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
 --
