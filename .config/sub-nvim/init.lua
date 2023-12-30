@@ -1,10 +1,23 @@
+vim.g.mapleader = " "
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
 require('plugins')
 require('editor')
 require('keymaps')
 require('autocmd')
-
--- Enable Comment.nvim
-require('Comment').setup()
+require('commands')
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -23,6 +36,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -58,6 +73,7 @@ end
 local servers = {
   clangd = {},
   tsserver = {},
+  diagnosticls = {},
   lua_ls = {
     Lua = {
       workspace = {
@@ -98,112 +114,6 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- nvim-cmp setup
-local cmp = require 'cmp'
-local luasnip = require 'luasnip'
-
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-  },
-  sources = cmp.config.sources({
-    { name = 'luasnip', option = { show_autosnippets = false } },
-    {
-      name = "nvim_lsp",
-      entry_filter = function(entry)
-        return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
-      end
-    },
-  }),
-}
-
--- personal settings
-vim.api.nvim_create_autocmd(
-  { "CursorHold", "CursorHoldI" },
-  {
-    pattern = "*",
-    callback = function()
-      for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-        if vim.api.nvim_win_get_config(winid).zindex then
-          return
-        end
-      end
-      vim.diagnostic.open_float(
-        {
-          format = function(diagnostic)
-            return string.format(
-              "%s (%s: %s)",
-              diagnostic.message,
-              diagnostic.source,
-              diagnostic.code
-            )
-          end
-        },
-        { focus = false, }
-      )
-    end
-  }
-)
-
-
--- nvim-tmux-navigation
-require 'nvim-tmux-navigation'.setup {
-  disable_when_zoomed = true, -- defaults to false
-  keybindings = {
-    left = "<c-h>",
-    down = "<c-j>",
-    up = "<c-k>",
-    right = "<c-l>",
-  }
-}
-
-
--- vim.keymap.set('n', '<leader>q', ':QuickRun<CR>')
-vim.g['quickrun_config'] = {
-  cpp = {
-    command = 'g++',
-    input = 'stdin.txt',
-    -- コイツらだめでした→-fsanitize=address -fsanitize=undefined
-    cmdopt =
-    '-Wall -Wextra -pedantic -std=c++14 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wshift-overflow -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fno-sanitize-recover -fstack-protector',
-  },
-  _ = {
-    ['outputter/error/success'] = 'buffer',
-    ['outputter/error/error'] = 'quickfix',
-    ['outputter/quickfix/open_cmd'] = 'copen',
-    ['hook/time/enable'] = 1,
-  }
-}
-
 -- これみたい：https://www.reddit.com/r/neovim/comments/q5z38t/easiest_way_to_find_if_a_buffer_is_hidden/
 function Execute()
   vim.cmd("vnew | put=system('exe index.cpp && timeout 2 ./a.out < stdin.txt && echo && echo ended')")
@@ -226,22 +136,6 @@ local function getCppWindowID()
   end
 
   -- C++ファイルを開いているウィンドウが見つからなかった場合はnilを返す
-  return nil
-end
-
-local function findBufferByName(buffer_name)
-  -- 全てのバッファの番号を取得
-  local bufs = vim.api.nvim_list_bufs()
-
-  for _, bufnr in ipairs(bufs) do
-    -- 各バッファの名前を取得
-    local name = vim.api.nvim_buf_get_name(bufnr)
-    if name == buffer_name then
-      return bufnr
-    end
-  end
-
-  -- 指定した名前のバッファが見つからない場合はnilを返す
   return nil
 end
 
@@ -289,7 +183,7 @@ function showOrOpenBufferByName()
   vim.api.nvim_set_current_win(cpp_win_id)
 end
 
--- Neovimのコマンドとして登録
-vim.cmd("command! OpenOrCreateBuffer lua showOrOpenBufferByName()")
+-- -- Neovimのコマンドとして登録
+-- vim.cmd("command! OpenOrCreateBuffer lua showOrOpenBufferByName()")
 
-vim.keymap.set('n', '<leader>q', ':lua showOrOpenBufferByName()<CR>')
+-- vim.keymap.set('n', '<leader>q', ':lua showOrOpenBufferByName()<CR>')
