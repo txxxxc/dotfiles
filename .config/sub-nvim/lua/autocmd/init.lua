@@ -1,10 +1,4 @@
--- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
-  group = packer_group,
-  pattern = vim.fn.expand '$MYVIMRC',
-})
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -34,3 +28,31 @@ vim.api.nvim_create_autocmd('BufNewFile', {
   command = '0r ~/.config/sub-nvim/templates/atcoder.cpp',
   pattern = '*/competitive-programming/**/*.cpp',
 })
+
+-- personal settings
+vim.api.nvim_create_autocmd(
+  { "CursorHold", "CursorHoldI" },
+  {
+    pattern = "*",
+    callback = function()
+      for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.api.nvim_win_get_config(winid).zindex then
+          return
+        end
+      end
+      vim.diagnostic.open_float(
+        {
+          format = function(diagnostic)
+            return string.format(
+              "%s (%s: %s)",
+              diagnostic.message,
+              diagnostic.source,
+              diagnostic.code
+            )
+          end
+        },
+        { focus = false, }
+      )
+    end
+  }
+)
