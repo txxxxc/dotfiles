@@ -49,7 +49,7 @@ vim.cmd("set clipboard+=unnamedplus")
 vim.o.updatetime = 250
 
 -- disable diagnostics text on editor
-vim.diagnostic.config({
-  virtual_text = false
-})
+-- vim.diagnostic.config({
+--   virtual_text = false
+-- })
 
