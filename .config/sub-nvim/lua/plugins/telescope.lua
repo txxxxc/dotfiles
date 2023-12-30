@@ -2,7 +2,7 @@ return {
   -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   branch = '0.1.x',
-  requires = { 'nvim-lua/plenary.nvim' },
+  dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
@@ -17,7 +17,7 @@ return {
       },
       pickers = {
         find_files = {
-          find_command = {'rg', '--files', '--hidden', '-g', '!{node_modules/*,.git/*}'}
+          find_command = { 'rg', '--files', '--hidden', '-g', '!{node_modules/*,.git/*}' }
         }
       }
     }
