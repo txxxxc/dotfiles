@@ -65,4 +65,5 @@ abbr -a gil "gh issue list" # imported from a universal variable, see `help abbr
 abbr -a svim 'set -gx NVIM_APPNAME sub-nvim && nvim'
 abbr -a mvim 'set -gx NVIM_APPNAME nvim && nvim'
 abbr -a cvim --set-cursor 'set -gx NVIM_APPNAME % && nvim'
+abbr -a rmf "rm -rf" # imported from a universal variable, see `help abbr`
 
