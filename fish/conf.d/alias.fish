@@ -31,7 +31,6 @@ alias cl="clear"
 alias rmf="rm -rf"
 alias r="ruby"
 alias heorku="heroku"
-alias cat="bat"
 alias ls='lsd -A --group-dirs=last'
 alias ll='lsd -Ahl --total-size --group-dirs=last'
 alias tree='lsd -A --tree --group-dirs=last'
@@ -48,4 +47,3 @@ alias vimcf='vim ~/.config/nvim'
 alias svim='set -gx NVIM_APPNAME sub-nvim && nvim'
 alias mvim='set -gx NVIM_APPNAME nvim && nvim'
 alias v='set -gx NVIM_APPNAME nvim && nvim'
-
