@@ -29,11 +29,12 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-set -g fish_key_bindings fish_hybrid_key_bindings
-set fish_cursor_default block
-set fish_cursor_insert line
-set fish_cursor_replace_one underscore
-set fish_cursor_visual block
+set -gx fish_key_bindings fish_hybrid_key_bindings
+set -gx fish_cursor_default block
+set -gx fish_cursor_insert line
+set -gx fish_cursor_replace_one underscore
+set -gx fish_cursor_visual block
+set -g fish_vi_force_cursor 1
 bind -M insert \cg fgh
 bind -M insert \co forward-char
 
@@ -62,8 +63,13 @@ abbr -a -- y 'corepack yarn' # imported from a universal variable, see `help abb
 abbr -a gic --set-cursor "gh issue create --title \"%\" --body \"\"" # imported from a universal variable, see `help abbr`
 abbr -a m "make" # imported from a universal variable, see `help abbr`
 abbr -a gil "gh issue list" # imported from a universal variable, see `help abbr`
-abbr -a svim 'set -gx NVIM_APPNAME sub-nvim && nvim'
-abbr -a mvim 'set -gx NVIM_APPNAME nvim && nvim'
+abbr -a vim 'set -gx NVIM_APPNAME nvim && nvim'
 abbr -a cvim --set-cursor 'set -gx NVIM_APPNAME % && nvim'
 abbr -a rmf "rm -rf" # imported from a universal variable, see `help abbr`
+abbr -a lg "lazygit" # imported from a universal variable, see `help abbr`
+abbr -a cat "bat --theme=Nord" # imported from a universal variable, see `help abbr`
+abbr -a stime "/usr/bin/time -p" # imported from a universal variable, see `help abbr
+
+# gh-search-pr-review-requestedのabbr
+abbr -a -- grr 'gh-search-pr-review-requested' # imported from a universal variable, see `help abbr`
 
