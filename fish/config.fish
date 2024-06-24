@@ -12,8 +12,9 @@ fish_add_path /opt/homebrew/bin
 # /Users/tomoya_tanaka/.asdf/installs/golang/1.21.0
 # golang
 set -x GOPATH (asdf where golang)
-set -x GOROOT (asdf where golang)/go
+set -gx GOROOT (asdf where golang)/go
 set -x GOBIN (asdf where golang)/packages/bin
+set -gx GHQ_ROOT $HOME/projects
 fish_add_path $GOPATH/go/bin
 fish_add_path $GOBIN
 
@@ -69,6 +70,7 @@ abbr -a rmf "rm -rf" # imported from a universal variable, see `help abbr`
 abbr -a lg "lazygit" # imported from a universal variable, see `help abbr`
 abbr -a cat "bat --theme=Nord" # imported from a universal variable, see `help abbr`
 abbr -a stime "/usr/bin/time -p" # imported from a universal variable, see `help abbr
+abbr -a gsw "git switch"
 
 # gh-search-pr-review-requestedのabbr
 abbr -a -- grr 'gh-search-pr-review-requested' # imported from a universal variable, see `help abbr`
