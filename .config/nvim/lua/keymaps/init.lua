@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { de
 vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 vim.keymap.set("n", "<leader>sm", require("telescope.builtin").man_pages, { desc = "[S]earch [M]an" })
-
+vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status, { desc = "[G]it [S]tatus" })
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
@@ -58,3 +58,8 @@ vim.keymap.set("", "[b", ":bnext<CR>", { desc = "move buffer", silent = true })
 vim.keymap.set("n", "<leader>c", "<Cmd>BufferClose<CR>", { desc = "delete buffer", silent = true })
 vim.keymap.set("n", "|", "<Cmd>vsplit<CR>", { desc = "Vertical Split", silent = true })
 vim.keymap.set("n", "\\", "<Cmd>split<CR>", { desc = "Vertical Split", silent = true })
+
+-- https://zenn.dev/vim_jp/articles/2024-06-05-vim-middle-class-features
+for _, quote in ipairs({ '"', "'", "`" }) do
+  vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
+end
