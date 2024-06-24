@@ -64,7 +64,7 @@ return {
     lazy = false,
   },
   "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-
+  "thinca/vim-qfreplace",
   "lambdalisue/nerdfont.vim",
   "phaazon/hop.nvim",
   {
@@ -75,4 +75,5 @@ return {
   },
   "lambdalisue/glyph-palette.vim",
   "cohama/lexima.vim",
+  "itchyny/vim-qfedit"
 }
