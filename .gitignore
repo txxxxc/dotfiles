@@ -7,3 +7,20 @@ fishd.*
 fish_history
 fish_variables
 config.local.fish
+
+# シンボリックリンクが地獄すぎていっぱいfishが生えてるのでignore
+# いい感じに設定変えてから消したい
+.config/fish
+
+# ちょっと怖いけど多分いらない
+fish/functions/_*
+
+# raycast 
+.config/raycast/extensions
+
+# httpie
+.config/httpie/sessions
+
+# .vim
+.vim/.netrwhist
+

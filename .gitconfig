@@ -9,8 +9,6 @@
 [init]
 	defaultBranch = master
 [commit] verbose = true
-[ghq]
-	root = /Users/tomoya_tanaka/projects
 [alias]
 	st = status
 
