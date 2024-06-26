@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
-let g:netrw_dirhist_2='/Users/tomoya_tanaka/projects/github.com/txxxxc/aspida/packages/aspida-axios'
-let g:netrw_dirhist_1='/Users/tomoya_tanaka/dotfiles'
