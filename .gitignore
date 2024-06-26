@@ -1,5 +1,9 @@
 .git
 .zsh-history
 .vim/sessions/default.vim
-fish/functions/_*
 
+# fish
+fishd.*
+fish_history
+fish_variables
+config.local.fish
