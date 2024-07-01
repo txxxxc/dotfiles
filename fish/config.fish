@@ -76,6 +76,7 @@ abbr -a lg "lazygit" # imported from a universal variable, see `help abbr`
 abbr -a cat "bat --theme=Nord" # imported from a universal variable, see `help abbr`
 abbr -a stime "/usr/bin/time -p" # imported from a universal variable, see `help abbr
 abbr -a gsw "git switch"
+abbr -a gst "git stash"
 abbr -a lsa "ls -la" # imported from a universal variable, see `help abbr
 abbr -a giv "gh issue list | fzf | awk '{print $1}' | xargs gh issue view --web"
 abbr -a gpv "gh pr list | fzf | awk '{print $1}' | xargs gh pr view --web"
