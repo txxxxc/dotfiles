@@ -3,15 +3,7 @@
 return {
 	"akinsho/toggleterm.nvim",
 	event = "VeryLazy",
-	-- dependencies = {
-	-- 	{
-	-- 		"tknightz/telescope-termfinder.nvim",
-	-- 		config = function()
-	-- 			require("telescope").load_extension("termfinder")
-	-- 		end,
-	-- 		cond = has("telescope.nvim"),
-	-- 	},
-	-- },
+    cond = not vim.g.vscode,
 	config = function()
 		local create_cli = function(cmd)
 			local Terminal = require("toggleterm.terminal").Terminal

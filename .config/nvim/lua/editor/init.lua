@@ -50,16 +50,18 @@ vim.o.updatetime = 250
 -- setup show tabline
 vim.o.showtabline = 2
 vim.cmd [[au FileType * if index(['wipe', 'delete'], &bufhidden) >= 0 | set nobuflisted | endif]]
+-- setup termguicolors
+vim.opt.termguicolors = true
 
 -- disable diagnostics text on editor
 -- vim.diagnostic.config({
 --   virtual_text = false
 -- })
-vim.api.nvim_set_hl(0, "BufferCurrent", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentERROR", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentHINT", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentSign", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentIcon", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentINFO", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentWARN", { ctermbg = 0, bg = Clear })
-vim.api.nvim_set_hl(0, "BufferCurrentMod", { ctermbg = 0, bg = Clear })
+vim.api.nvim_set_hl(0, "BufferCurrent", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentERROR", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentHINT", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentSign", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentIcon", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentINFO", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentWARN", { ctermbg = 0, bg = nil })
+vim.api.nvim_set_hl(0, "BufferCurrentMod", { ctermbg = 0, bg = nil })

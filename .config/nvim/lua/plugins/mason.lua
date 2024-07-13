@@ -1,6 +1,6 @@
 return {
 	"williamboman/mason.nvim",
-	enabled = true,
+	cond = not vim.g.vscode,
 	cmd = { "Mason" },
 	opts = {
 		ui = {

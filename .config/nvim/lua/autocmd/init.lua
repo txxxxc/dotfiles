@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       print "typescriptreact"
       -- prettier実行してからESLintを実行する
       -- vim.lsp.buf.format()
-      vim.cmd "EslintFixAll"
+      -- vim.cmd "EslintFixAll"
       return
     end
     if vim.bo.filetype == "cpp" then return end
