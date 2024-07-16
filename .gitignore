@@ -15,12 +15,10 @@ config.local.fish
 # ちょっと怖いけど多分いらない
 fish/functions/_*
 
-# raycast 
-.config/raycast/extensions
-
-# httpie
-.config/httpie/sessions
-
 # .vim
 .vim/.netrwhist
 
+.config/*
+
+!.config/nvim
+!.config/
