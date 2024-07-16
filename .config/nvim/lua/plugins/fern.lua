@@ -1,5 +1,6 @@
 return {
   'lambdalisue/fern.vim',
+  cond = not vim.g.vscode,
   dependencies = {
     'lambdalisue/nerdfont.vim',
     'lambdalisue/glyph-palette.vim',

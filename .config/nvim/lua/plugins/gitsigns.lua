@@ -1,7 +1,6 @@
 return {
   'lewis6991/gitsigns.nvim',
-  -- Gitsigns
-  -- See `:help gitsigns.txt`
+  cond = not vim.g.vscode,
   config = function()
     require('gitsigns').setup {
       signs = {

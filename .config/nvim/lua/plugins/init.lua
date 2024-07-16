@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    cond = not vim.g.vscode,
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       "williamboman/mason.nvim",
@@ -54,8 +55,14 @@ return {
   },
 
   -- Git related plugins
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
+  {
+    "tpope/vim-fugitive",
+    cond = not vim.g.vscode,
+  },
+  {
+    "tpope/vim-rhubarb",
+    cond = not vim.g.vscode,
+  },
   "folke/neodev.nvim",
   "nvim-tree/nvim-web-devicons",
   "nvim-lua/plenary.nvim",    -- All the lua functions I don't want to write twice.
@@ -69,6 +76,7 @@ return {
   "phaazon/hop.nvim",
   {
     "lambdalisue/fern-renderer-nerdfont.vim",
+    cond = not vim.g.vscode,
     dependencies = {
       "lambdalisue/fern.vim",
     },

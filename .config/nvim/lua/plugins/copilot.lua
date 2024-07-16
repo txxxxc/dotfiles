@@ -4,7 +4,7 @@ local event = { "InsertEnter", "VeryLazy" }
 return {
 	{
 		"zbirenbaum/copilot.lua",
-		enabled = true,
+		cond = not vim.g.vscode,
 		cmd = { "Copilot" },
 		event = event,
 		dependencies = {

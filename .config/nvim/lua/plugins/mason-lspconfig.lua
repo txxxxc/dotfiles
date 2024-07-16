@@ -45,12 +45,12 @@ local servers = {
 
 return {
 	"williamboman/mason-lspconfig.nvim",
+    cond = not vim.g.vscode,
     dependencies = {
         "williamboman/mason.nvim",
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp",
     },
-    cond = not vim.g.vscode,
     config = function()
         local mason_lspconfig = require "mason-lspconfig"
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
