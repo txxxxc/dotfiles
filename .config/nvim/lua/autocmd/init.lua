@@ -15,11 +15,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
 })
 
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#553311" })
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function() vim.highlight.on_yank() end,
-  group = highlight_group,
   pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'YankHighlight', timeout = 200 })
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {

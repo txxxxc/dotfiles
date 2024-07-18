@@ -84,3 +84,8 @@ abbr -a gpv "gh pr list | fzf | awk '{print $1}' | xargs gh pr view --web"
 # gh-search-pr-review-requestedのabbr
 abbr -a -- grr 'gh-search-pr-review-requested' # imported from a universal variable, see `help abbr`
 set -x PATH (pwd)"/git-fuzzy/bin:$PATH"
+set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS
+      --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1
+      --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
+      --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+      --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b"

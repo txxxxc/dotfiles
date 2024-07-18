@@ -22,6 +22,7 @@ return {
   },
   {
     "romgrk/barbar.nvim",
+    cond = not vim.g.vscode,
     event = "BufEnter",
     dependencies = {
       "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
@@ -53,7 +54,6 @@ return {
     },
     version = "^1.0.0", -- optional: only update when a new 1.x version is released
   },
-
   -- Git related plugins
   {
     "tpope/vim-fugitive",
@@ -70,9 +70,18 @@ return {
     "EdenEast/nightfox.nvim", -- Theme inspired by nord
     lazy = false,
   },
-  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-  "thinca/vim-qfreplace",
-  "lambdalisue/nerdfont.vim",
+  {
+    "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+    cond = not vim.g.vscode,
+  },
+  {
+    "thinca/vim-qfreplace",
+    cond = not vim.g.vscode
+  },
+  {
+    "lambdalisue/nerdfont.vim",
+    cond = not vim.g.vscode,
+  },
   "phaazon/hop.nvim",
   {
     "lambdalisue/fern-renderer-nerdfont.vim",
@@ -81,7 +90,16 @@ return {
       "lambdalisue/fern.vim",
     },
   },
-  "lambdalisue/glyph-palette.vim",
-  "cohama/lexima.vim",
-  "itchyny/vim-qfedit"
+  { 
+    "lambdalisue/glyph-palette.vim",
+    cond = not vim.g.vscode
+  },
+  {
+    "itchyny/vim-qfedit",
+    cond = not vim.g.vscode,
+  },
+  {
+    "cohama/lexima.vim",
+    cond = not vim.g.vscode,
+  }
 }

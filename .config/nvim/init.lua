@@ -7,3 +7,6 @@ require "plugins"
 require "keymaps"
 require "autocmd"
 require "commands"
+if vim.g.vscode then
+  require "vscode_neovim"
+end

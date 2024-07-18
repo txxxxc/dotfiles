@@ -5,6 +5,9 @@ return {
     'lambdalisue/nerdfont.vim',
     'lambdalisue/glyph-palette.vim',
   },
+  keys = {
+    { "<leader>e", "<cmd>Fern . -reveal=% -drawer -toggle -width=40<cr>", desc = "toggle Fern", silent = true },
+  },
   config = function()
     -- fern
     vim.g['fern#default_hidden'] = true
