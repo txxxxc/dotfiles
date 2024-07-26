@@ -16,6 +16,20 @@ vim.api.nvim_set_keymap(
 
 vim.api.nvim_set_keymap(
   'n',
+  '[c',
+  "<Cmd>lua require('vscode').action('workbench.action.editor.previousChange')<CR>",
+  { noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+  'n',
+  ']c',
+  "<Cmd>lua require('vscode').action('workbench.action.editor.nextChange')<CR>",
+  { noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+  'n',
   '<leader>rn',
   "<Cmd>lua require('vscode').action('editor.action.rename')<CR>",
   { noremap = true, silent = true }
@@ -33,3 +47,10 @@ vim.api.nvim_set_keymap(
   "<Cmd>lua Toggle_terminal()<CR>",
   { noremap = true, silent = true }
 )
+
+local function write_vscode_commands_to_file()
+  local commands = require('vscode').eval('return vscode.commands.getCommands()')
+  print(commands)
+end
+
+write_vscode_commands_to_file()

@@ -36,6 +36,5 @@ return {
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, '[W]orkspace [L]ist Folders')
 
-		-- Create a command `:Format` local to the LSP buffer
 	end,
 }
