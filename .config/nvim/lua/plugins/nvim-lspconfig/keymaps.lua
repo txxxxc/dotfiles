@@ -11,7 +11,7 @@ return {
 		-- [_Lsp]
 		vim.keymap.set("n", ";", "<Nop>", { noremap = true, silent = true })
 		vim.keymap.set("n", "[_Lsp]", "<Nop>", { noremap = true, silent = true })
-		vim.api.nvim_set_keymap("n", ";", "[_Lsp]", {})
+			vim.api.nvim_set_keymap("n", ";", "[_Lsp]", {})
 		nmap('[d', vim.diagnostic.goto_prev, 'go to prev diagnostic')
 		nmap(']d', vim.diagnostic.goto_next, 'go to next diagnostic')
 		nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')

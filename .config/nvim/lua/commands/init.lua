@@ -44,3 +44,6 @@ vim.api.nvim_create_user_command('AtcoderExec',
 )
 
 vim.keymap.set('n', '<leader>q', ':AtcoderExec<CR>', { silent = true })
+
+vim.keymap.set('n', '<leader>rl', ':lua dofile(vim.env.MYVIMRC)<CR>', { silent = true })
+vim.keymap.set('n', '<leader>vs', ':luafile %<CR>', { silent = true })
