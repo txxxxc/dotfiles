@@ -1,6 +1,7 @@
 # Returns 0 if fish is interactive - that is, connected to a keyboard.
 fish_add_path "$ASDF_DIR/bin"
 fish_add_path "$HOME/.asdf/shims"
+fish_add_path "/usr/local/bin"
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 # if status is-interactive
@@ -78,8 +79,9 @@ abbr -a stime "/usr/bin/time -p" # imported from a universal variable, see `help
 abbr -a gsw "git switch"
 abbr -a gst "git stash"
 abbr -a lsa "ls -la" # imported from a universal variable, see `help abbr
-abbr -a giv "gh issue list | fzf | awk '{print $1}' | xargs gh issue view --web"
-abbr -a gpv "gh pr list | fzf | awk '{print $1}' | xargs gh pr view --web"
+abbr -a giv "gh issue list | fzf | awk '{print \$1}' | xargs gh issue view --web"
+abbr -a gpv "gh pr list | fzf | awk '{print \$1}' | xargs gh pr view --web"
+abbr -a ld "lazydocker"
 
 # gh-search-pr-review-requestedのabbr
 abbr -a -- grr 'gh-search-pr-review-requested' # imported from a universal variable, see `help abbr`

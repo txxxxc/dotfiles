@@ -1,6 +1,6 @@
 local servers = {
   clangd = {},
-  tsserver = {},
+  ts_ls = {},
   eslint = {},
   gopls = {
     gofumpt = true,
@@ -44,28 +44,28 @@ local servers = {
 }
 
 return {
-	"williamboman/mason-lspconfig.nvim",
-    cond = not vim.g.vscode,
-    dependencies = {
-        "williamboman/mason.nvim",
-        "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
-    },
-    config = function()
-        local mason_lspconfig = require "mason-lspconfig"
-        -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-        mason_lspconfig.setup {
-          ensure_installed = { "clangd", "tsserver", "diagnosticls", "lua_ls", "omnisharp" },
+  "williamboman/mason-lspconfig.nvim",
+  cond = not vim.g.vscode,
+  dependencies = {
+    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+  },
+  config = function()
+    local mason_lspconfig = require "mason-lspconfig"
+    -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+    mason_lspconfig.setup {
+      ensure_installed = { "clangd", "ts_ls", "diagnosticls", "lua_ls", "omnisharp" },
+    }
+    mason_lspconfig.setup_handlers {
+      function(server_name)
+        require("lspconfig")[server_name].setup {
+          capabilities = capabilities,
+          settings = servers[server_name],
         }
-        mason_lspconfig.setup_handlers {
-          function(server_name)
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities,
-              settings = servers[server_name],
-            }
-          end,
-        }
-    end
+      end,
+    }
+  end,
 }
