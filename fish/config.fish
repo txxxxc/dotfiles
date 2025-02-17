@@ -51,7 +51,7 @@ zoxide init fish | source
 ## abbr
 abbr -a -- L '--position anywhere --set-cursor ! ! | less' # imported from a universal variable, see `help abbr`
 abbr -a -- atf 'atcoder first' # imported from a universal variable, see `help abbr`
-abbr -a -- dc docker-compose # imported from a universal variable, see `help abbr`
+abbr -a -- dc 'docker compose' # imported from a universal variable, see `help abbr`
 abbr -a -- sb storybook # imported from a universal variable, see `help abbr`
 abbr -a -- pnpm 'corepack pnpm' # imported from a universal variable, see `help abbr`
 abbr -a -- foo '--set-cursor bar % baz' # imported from a universal variable, see `help abbr`
@@ -82,6 +82,7 @@ abbr -a lsa "ls -la" # imported from a universal variable, see `help abbr
 abbr -a giv "gh issue list | fzf | awk '{print \$1}' | xargs gh issue view --web"
 abbr -a gpv "gh pr list | fzf | awk '{print \$1}' | xargs gh pr view --web"
 abbr -a ld "lazydocker"
+abbr -a cs "cursor"
 
 # gh-search-pr-review-requestedのabbr
 abbr -a -- grr 'gh-search-pr-review-requested' # imported from a universal variable, see `help abbr`
@@ -91,3 +92,10 @@ set -x FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS
       --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
       --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
       --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b"
+
+# git
+
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showupstream 'yes'
+
