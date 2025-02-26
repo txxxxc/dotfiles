@@ -74,7 +74,7 @@ abbr -a vim 'set -gx NVIM_APPNAME nvim && nvim'
 abbr -a cvim --set-cursor 'set -gx NVIM_APPNAME % && nvim'
 abbr -a rmf "rm -rf" # imported from a universal variable, see `help abbr`
 abbr -a lg "lazygit" # imported from a universal variable, see `help abbr`
-abbr -a cat "bat --theme=Nord" # imported from a universal variable, see `help abbr`
+# abbr -a cat "bat --theme=Nord" # imported from a universal variable, see `help abbr`
 abbr -a stime "/usr/bin/time -p" # imported from a universal variable, see `help abbr
 abbr -a gsw "git switch"
 abbr -a gst "git stash"
@@ -83,6 +83,8 @@ abbr -a giv "gh issue list | fzf | awk '{print \$1}' | xargs gh issue view --web
 abbr -a gpv "gh pr list | fzf | awk '{print \$1}' | xargs gh pr view --web"
 abbr -a ld "lazydocker"
 abbr -a cs "cursor"
+abbr -a gull "git pull origin \"$(git symbolic-ref --short HEAD)\""
+
 
 # gh-search-pr-review-requestedのabbr
 abbr -a -- grr 'gh-search-pr-review-requested' # imported from a universal variable, see `help abbr`
