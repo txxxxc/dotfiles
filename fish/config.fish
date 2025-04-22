@@ -1,20 +1,9 @@
 # Returns 0 if fish is interactive - that is, connected to a keyboard.
-fish_add_path "$ASDF_DIR/bin"
-fish_add_path "$HOME/.asdf/shims"
-fish_add_path "/usr/local/bin"
-
-# if status is-interactive
-#   ## エラー出るけどasdf自体は動いているので一旦エラーが出力されないように握りつぶします
-#   eval (/opt/homebrew/bin/brew shellenv)
-#   source /opt/homebrew/opt/asdf/libexec/asdf.fish &> /dev/null
-# end
-
 set -gx XDG_CONFIG_HOME ~/.config
 set -gx EDITOR nvim
 # fish_add_path $HOME/bin
 fish_add_path /opt/homebrew/bin
 
-# /Users/tomoya_tanaka/.asdf/installs/golang/1.21.0
 # golang
 set -gx GHQ_ROOT $HOME/projects
 fish_add_path $GOPATH/go/bin
@@ -31,6 +20,7 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
 
 set -gx fish_key_bindings fish_hybrid_key_bindings
 set -gx fish_cursor_default block
