@@ -7,6 +7,7 @@ return {
 		cond = not vim.g.vscode,
 		cmd = { "Copilot" },
 		event = event,
+		enabled = false,
 		dependencies = {
 			{
 				"zbirenbaum/copilot-cmp",

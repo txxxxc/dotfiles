@@ -25,7 +25,7 @@ return {
     cond = not vim.g.vscode,
     event = "BufEnter",
     dependencies = {
-      "lewis6991/gitsigns.nvim",     -- OPTIONAL: for git status
+      "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
     init = function() vim.g.barbar_auto_setup = true end,
@@ -65,10 +65,11 @@ return {
   },
   "folke/neodev.nvim",
   "nvim-tree/nvim-web-devicons",
-  "nvim-lua/plenary.nvim",    -- All the lua functions I don't want to write twice.
+  "nvim-lua/plenary.nvim", -- All the lua functions I don't want to write twice.
   {
     "EdenEast/nightfox.nvim", -- Theme inspired by nord
     lazy = false,
+    init = function() vim.opt.termguicolors = true end,
   },
   {
     "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
@@ -76,7 +77,7 @@ return {
   },
   {
     "thinca/vim-qfreplace",
-    cond = not vim.g.vscode
+    cond = not vim.g.vscode,
   },
   {
     "lambdalisue/nerdfont.vim",
@@ -90,9 +91,9 @@ return {
       "lambdalisue/fern.vim",
     },
   },
-  { 
+  {
     "lambdalisue/glyph-palette.vim",
-    cond = not vim.g.vscode
+    cond = not vim.g.vscode,
   },
   {
     "itchyny/vim-qfedit",
@@ -101,5 +102,5 @@ return {
   {
     "cohama/lexima.vim",
     cond = not vim.g.vscode,
-  }
+  },
 }
